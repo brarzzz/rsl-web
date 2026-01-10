@@ -1,4 +1,5 @@
 import { Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -79,12 +80,12 @@ const Footer = () => {
               © {currentYear} Rodriguez, Integración de Servicios Jurídicos S.A. de C.V. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-background/50 hover:text-accent transition-colors">
+              <Link to="/aviso-de-privacidad" className="text-background/50 hover:text-accent transition-colors">
                 Aviso de Privacidad
-              </a>
-              <a href="#" className="text-background/50 hover:text-accent transition-colors">
+              </Link>
+              <Link to="/terminos" className="text-background/50 hover:text-accent transition-colors">
                 Términos de Servicio
-              </a>
+              </Link>
             </div>
           </div>
         </div>
