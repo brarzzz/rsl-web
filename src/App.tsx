@@ -10,6 +10,7 @@ import PracticeAreas from "./pages/PracticeAreas";
 import Booking from "./pages/Booking";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Wireframe from "./pages/Wireframe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/wireframe" element={<Wireframe />} />
               <Route path="/areas-de-practica" element={<PracticeAreas />} />
               <Route path="/agendar-cita" element={<Booking />} />
               <Route path="/aviso-de-privacidad" element={<Privacy />} />
