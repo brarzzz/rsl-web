@@ -16,10 +16,56 @@ export const translations = {
       badge: '+22 años protegiendo negocios en Culiacán',
       title: 'Protegemos tu negocio.',
       titleAccent: 'Respaldamos tu crecimiento.',
-      subtitle: 'Asesoría legal preventiva y estratégica para emprendedores y empresas. Ordenamos contratos, prevenimos riesgos y resolvemos conflictos con claridad.',
+      subtitle: 'Prevención, contratos y defensa civil con lenguaje claro. Respuesta en 24 h.',
+      bullet1: 'Prevención para PYMEs',
+      bullet2: 'Gobierno corporativo y contratos',
+      bullet3: 'Atención cercana',
       ctaPrimary: 'Solicitar Cotización',
       ctaSecondary: 'Enviar WhatsApp',
       sla: 'Respuesta en menos de 24 horas • Lun–Vie 9:00–19:00',
+    },
+    // Benefits
+    benefits: {
+      badge: 'Por qué RSL',
+      title: '¿Por qué elegirnos?',
+      subtitle: 'Combinamos experiencia legal con procesos modernos para proteger tu negocio.',
+      preventive: {
+        title: 'Enfoque preventivo',
+        description: 'Anticipamos riesgos legales antes de que se conviertan en problemas costosos.',
+      },
+      communication: {
+        title: 'Comunicación clara',
+        description: 'Sin tecnicismos innecesarios. Entenderás cada paso del proceso.',
+      },
+      response: {
+        title: 'Tiempos de respuesta',
+        description: 'Respuesta garantizada en 24 horas. Tu tiempo es valioso.',
+      },
+      documentation: {
+        title: 'Documentación impecable',
+        description: 'Contratos y documentos precisos que protegen tus intereses.',
+      },
+    },
+    // Logo Wall
+    logoWall: {
+      title: 'Confían en nosotros',
+      placeholder: 'Logo',
+    },
+    // Testimonials
+    testimonials: {
+      badge: 'Testimonios',
+      title: 'Lo que dicen nuestros clientes',
+      subtitle: 'La satisfacción de nuestros clientes es nuestra mejor carta de presentación.',
+      placeholderQuote: 'Próximamente agregaremos testimonios reales de nuestros clientes.',
+      comingSoon: 'Pronto agregaremos testimonios de clientes reales.',
+    },
+    // Final CTA
+    finalCta: {
+      title: '¿Listo para proteger tu negocio?',
+      subtitle: 'Agenda una cita o contáctanos por WhatsApp. Te respondemos en menos de 24 horas.',
+      ctaBooking: 'Agendar Cita',
+      ctaWhatsapp: 'Enviar WhatsApp',
+      sla: 'Sin costo de consulta inicial • Respuesta en 24 horas',
     },
     // Metrics
     metrics: {
@@ -233,10 +279,56 @@ export const translations = {
       badge: '+22 years protecting businesses in Culiacán',
       title: 'We protect your business.',
       titleAccent: 'We support your growth.',
-      subtitle: 'Preventive and strategic legal advice for entrepreneurs and businesses. We organize contracts, prevent risks, and resolve conflicts with clarity.',
+      subtitle: 'Prevention, contracts and civil defense with clear language. Response in 24 hours.',
+      bullet1: 'Prevention for SMEs',
+      bullet2: 'Corporate governance and contracts',
+      bullet3: 'Personal attention',
       ctaPrimary: 'Request Quote',
       ctaSecondary: 'Send WhatsApp',
       sla: 'Response within 24 hours • Mon–Fri 9:00–19:00',
+    },
+    // Benefits
+    benefits: {
+      badge: 'Why RSL',
+      title: 'Why choose us?',
+      subtitle: 'We combine legal experience with modern processes to protect your business.',
+      preventive: {
+        title: 'Preventive approach',
+        description: 'We anticipate legal risks before they become costly problems.',
+      },
+      communication: {
+        title: 'Clear communication',
+        description: 'No unnecessary jargon. You will understand every step of the process.',
+      },
+      response: {
+        title: 'Response times',
+        description: 'Guaranteed response within 24 hours. Your time is valuable.',
+      },
+      documentation: {
+        title: 'Impeccable documentation',
+        description: 'Precise contracts and documents that protect your interests.',
+      },
+    },
+    // Logo Wall
+    logoWall: {
+      title: 'They trust us',
+      placeholder: 'Logo',
+    },
+    // Testimonials
+    testimonials: {
+      badge: 'Testimonials',
+      title: 'What our clients say',
+      subtitle: 'Our clients\' satisfaction is our best introduction.',
+      placeholderQuote: 'We will soon add real testimonials from our clients.',
+      comingSoon: 'Coming soon: real client testimonials.',
+    },
+    // Final CTA
+    finalCta: {
+      title: 'Ready to protect your business?',
+      subtitle: 'Schedule an appointment or contact us via WhatsApp. We respond within 24 hours.',
+      ctaBooking: 'Book Appointment',
+      ctaWhatsapp: 'Send WhatsApp',
+      sla: 'Free initial consultation • Response within 24 hours',
     },
     // Metrics
     metrics: {
