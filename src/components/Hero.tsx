@@ -1,13 +1,22 @@
 import { motion } from "framer-motion";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/i18n/LanguageContext";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, me gustaría recibir información sobre sus servicios legales.");
+    const message = encodeURIComponent(t.common.whatsappMessage);
     window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
   };
+
+  const bullets = [
+    t.hero.bullet1,
+    t.hero.bullet2,
+    t.hero.bullet3,
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -29,7 +38,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent/20 text-accent border border-accent/30 rounded-full">
-              +22 años protegiendo negocios en Culiacán
+              {t.hero.badge}
             </span>
           </motion.div>
           
@@ -39,19 +48,33 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6"
           >
-            Protegemos tu negocio.{" "}
-            <span className="text-accent">Respaldamos tu crecimiento.</span>
+            {t.hero.title}{" "}
+            <span className="text-accent">{t.hero.titleAccent}</span>
           </motion.h1>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
           >
-            Asesoría legal preventiva y estratégica para emprendedores y empresas. 
-            Ordenamos contratos, prevenimos riesgos y resolvemos conflictos con claridad.
+            {t.hero.subtitle}
           </motion.p>
+
+          {/* Bullets */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8"
+          >
+            {bullets.map((bullet, index) => (
+              <div key={index} className="flex items-center gap-2 text-primary-foreground/90">
+                <CheckCircle className="h-4 w-4 text-accent" />
+                <span className="text-sm sm:text-base">{bullet}</span>
+              </div>
+            ))}
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,13 +84,13 @@ const Hero = () => {
           >
             <Button variant="heroGold" size="xl" asChild>
               <a href="#contacto">
-                Solicitar Cotización
+                {t.hero.ctaPrimary}
                 <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="heroOutline" size="xl" onClick={handleWhatsApp}>
               <Phone className="h-5 w-5" />
-              Enviar WhatsApp
+              {t.hero.ctaSecondary}
             </Button>
           </motion.div>
           
@@ -77,7 +100,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-6 text-sm text-primary-foreground/60"
           >
-            Respuesta en menos de 24 horas • Lun–Vie 9:00–19:00
+            {t.hero.sla}
           </motion.p>
         </div>
       </div>
