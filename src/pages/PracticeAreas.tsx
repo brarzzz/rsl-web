@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, Scale, Home, Users, FileText, ArrowRight } from 'lucide-react';
+import { Shield, Building2, Home, Users, FileText, ArrowRight, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,7 +11,7 @@ import { useTranslation } from '@/i18n/LanguageContext';
 const practiceAreas = [
   {
     id: 'prevencion-consultoria',
-    icon: Building2,
+    icon: Shield,
     nameEs: 'Prevención y Consultoría Legal',
     nameEn: 'Prevention & Legal Consulting',
     shortEs: 'Diseños preventivos, auditoría básica de riesgos, políticas y contratos para emprendedores y PYMEs.',
@@ -161,8 +161,8 @@ const PracticeAreas = () => {
                   </div>
                   
                   <Button variant="outline" asChild className="group-hover:border-accent group-hover:text-accent">
-                    <Link to="/#contacto">
-                      {t.practiceAreas.consultation}
+                    <Link to={`/areas-de-practica/${area.id}`}>
+                      {t.services.viewArea}
                       <ArrowRight className="h-4 w-4 ml-1" />
                     </Link>
                   </Button>
