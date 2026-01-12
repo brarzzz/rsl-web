@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-
+import logo from "@/assets/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
@@ -62,9 +62,8 @@ const Navbar = () => {
       </a>
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between" aria-label="Navegación principal">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2" aria-label="Rodriguez Soporte Legal - Inicio">
-          <span className="font-serif text-xl font-bold text-primary" aria-hidden="true">RSL</span>
-          <span className="hidden sm:inline text-sm text-muted-foreground">Rodriguez Soporte Legal</span>
+        <Link to="/" className="flex items-center" aria-label="Rodriguez Soporte Legal - Inicio">
+          <img src={logo} alt="Rodriguez Soporte Legal" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
