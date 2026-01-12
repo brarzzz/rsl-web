@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import PracticeAreas from "./pages/PracticeAreas";
 import PracticeAreaDetail from "./pages/PracticeAreaDetail";
+import TeamMemberDetail from "./pages/TeamMemberDetail";
 import Booking from "./pages/Booking";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/wireframe" element={<Wireframe />} />
               <Route path="/areas-de-practica" element={<PracticeAreas />} />
               <Route path="/areas-de-practica/:areaSlug" element={<PracticeAreaDetail />} />
+              <Route path="/equipo/:memberSlug" element={<TeamMemberDetail />} />
               <Route path="/agendar-cita" element={<Booking />} />
               <Route path="/aviso-de-privacidad" element={<Privacy />} />
               <Route path="/terminos" element={<Terms />} />
