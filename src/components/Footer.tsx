@@ -34,7 +34,9 @@ const Footer = () => {
                 <Instagram className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/rodriguez-soporte-legal-4a16493a5/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Visitar nuestro LinkedIn - Abre en nueva ventana"
               >

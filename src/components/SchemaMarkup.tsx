@@ -38,6 +38,7 @@ const SchemaMarkup = ({ type, pageTitle, pageDescription }: SchemaMarkupProps) =
     },
     sameAs: [
       'https://instagram.com/rodriguez.soportelegal',
+      'https://www.linkedin.com/in/rodriguez-soporte-legal-4a16493a5/',
     ],
   };
 
