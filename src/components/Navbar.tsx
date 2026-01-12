@@ -72,25 +72,9 @@ const Navbar = () => {
           {navLinks.map((link) => renderNavLink(link))}
         </div>
 
-        {/* CTA Buttons + Language Switcher */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Language Switcher */}
+        <div className="hidden lg:flex items-center">
           <LanguageSwitcher />
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={handleWhatsApp}
-            className="gap-2"
-            aria-label="Enviar WhatsApp - Abre en nueva ventana"
-          >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            {t.hero.ctaSecondary}
-          </Button>
-          <Button variant="gold" size="sm" asChild className="gap-2">
-            <a href="#contacto" aria-label="Solicitar cotización">
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              {t.hero.ctaPrimary}
-            </a>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -122,23 +106,6 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => renderNavLink(link, true))}
-              <div className="flex flex-col gap-3 pt-4 border-t border-border mt-2">
-                <Button 
-                  variant="outline" 
-                  onClick={handleWhatsApp}
-                  className="w-full gap-2"
-                  aria-label="Enviar WhatsApp - Abre en nueva ventana"
-                >
-                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                  {t.hero.ctaSecondary}
-                </Button>
-                <Button variant="gold" asChild className="w-full gap-2">
-                  <a href="#contacto" onClick={() => setIsOpen(false)} aria-label="Solicitar cotización">
-                    <Phone className="h-4 w-4" aria-hidden="true" />
-                    {t.hero.ctaPrimary}
-                  </a>
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}
