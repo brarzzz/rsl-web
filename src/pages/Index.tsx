@@ -29,8 +29,7 @@ const Index = () => {
         schema={[organizationSchema, legalServiceSchema, websiteSchema]}
       />
       <Navbar />
-      <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Benefits />
         <Metrics />

@@ -23,10 +23,14 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+      {/* Skip link for keyboard users */}
+      <a href="#main-content" className="skip-link">
+        Saltar al contenido principal
+      </a>
+      <nav className="container mx-auto px-4 h-16 flex items-center justify-between" aria-label="Navegación principal">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-serif text-xl font-bold text-primary">RSL</span>
+        <a href="#" className="flex items-center gap-2" aria-label="Rodriguez Soporte Legal - Inicio">
+          <span className="font-serif text-xl font-bold text-primary" aria-hidden="true">RSL</span>
           <span className="hidden sm:inline text-sm text-muted-foreground">Rodriguez Soporte Legal</span>
         </a>
 
@@ -46,12 +50,17 @@ const Navbar = () => {
         {/* CTA Buttons + Language Switcher */}
         <div className="hidden md:flex items-center gap-2">
           <LanguageSwitcher />
-          <Button variant="whatsapp" size="sm" onClick={handleWhatsApp}>
-            <Phone className="h-4 w-4" />
+          <Button 
+            variant="whatsapp" 
+            size="sm" 
+            onClick={handleWhatsApp}
+            aria-label="Contactar por WhatsApp - Abre en nueva ventana"
+          >
+            <Phone className="h-4 w-4" aria-hidden="true" />
             WhatsApp
           </Button>
           <Button variant="gold" size="sm" asChild>
-            <a href="#contacto">{t.hero.ctaPrimary}</a>
+            <a href="#contacto" aria-label="Ir a la sección de contacto">{t.hero.ctaPrimary}</a>
           </Button>
         </div>
 
@@ -60,10 +69,12 @@ const Navbar = () => {
           <LanguageSwitcher />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-foreground"
-            aria-label="Toggle menu"
+            className="p-2 text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
       </nav>
@@ -72,10 +83,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-b border-border"
+            role="navigation"
+            aria-label="Menú móvil"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -89,12 +103,16 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="whatsapp" onClick={handleWhatsApp}>
-                  <Phone className="h-4 w-4" />
+                <Button 
+                  variant="whatsapp" 
+                  onClick={handleWhatsApp}
+                  aria-label="Contactar por WhatsApp - Abre en nueva ventana"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
                   {t.hero.ctaSecondary}
                 </Button>
                 <Button variant="gold" asChild>
-                  <a href="#contacto">{t.hero.ctaPrimary}</a>
+                  <a href="#contacto" aria-label="Ir a la sección de contacto">{t.hero.ctaPrimary}</a>
                 </Button>
               </div>
             </div>

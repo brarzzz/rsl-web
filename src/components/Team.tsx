@@ -99,8 +99,12 @@ const Team = () => {
                 <div className="relative">
                   <img
                     src={member.photo}
-                    alt={member.name}
+                    alt={`Foto de ${member.name}, ${member.role} en Rodriguez Soporte Legal`}
                     className="w-32 h-32 rounded-full object-cover object-top border-4 border-accent/20 group-hover:border-accent/50 transition-colors"
+                    loading="lazy"
+                    decoding="async"
+                    width="128"
+                    height="128"
                   />
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full whitespace-nowrap">
                     +{member.years} años
@@ -120,9 +124,9 @@ const Team = () => {
               {/* CTA */}
               <div className="p-6 pt-4">
                 <Button asChild variant="outline" className="w-full group/btn">
-                  <Link to={`/equipo/${member.slug}`}>
+                  <Link to={`/equipo/${member.slug}`} aria-label={`Ver perfil completo de ${member.name}`}>
                     Ver perfil
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>
                 </Button>
               </div>
