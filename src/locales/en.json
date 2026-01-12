@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "services": "Services",
     "practiceAreas": "Practice Areas",
     "about": "About Us",
@@ -270,6 +271,9 @@
     "placeholder": "[Pending translation]"
   },
   "legal": {
+    "disclaimer": "[Pending translation]",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
     "privacy": {
       "title": "Privacy Policy",
       "lastUpdated": "Last updated",
