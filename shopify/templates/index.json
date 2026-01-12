@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "header": {
+      "type": "header"
+    },
+    "app": {
+      "type": "react-app"
+    },
+    "footer": {
+      "type": "footer"
+    }
+  },
+  "order": ["header", "app", "footer"]
+}

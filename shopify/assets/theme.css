@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+}
+
+.page-width {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 24px;
+}
+
+.shopify-header,
+.shopify-footer {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.shopify-header {
+  border-bottom: 1px solid hsl(var(--border, 210 20% 90%));
+}
+
+.shopify-header__logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.shopify-header__nav-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.shopify-header__nav-link,
+.shopify-footer__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shopify-footer {
+  border-top: 1px solid hsl(var(--border, 210 20% 90%));
+}
+
+.shopify-footer__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.shopify-footer__heading {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+}
+
+.shopify-footer__text {
+  margin: 0;
+}
+
+.shopify-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.react-app-section {
+  min-height: 60vh;
+}

@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:shopify": "vite build --mode shopify",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "shopify:zip": "node scripts/package-shopify.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

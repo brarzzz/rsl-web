@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "primary_hsl",
+        "label": "Primary color (HSL)",
+        "default": "210 52% 24%"
+      },
+      {
+        "type": "text",
+        "id": "primary_foreground_hsl",
+        "label": "Primary foreground (HSL)",
+        "default": "0 0% 100%"
+      },
+      {
+        "type": "text",
+        "id": "accent_hsl",
+        "label": "Accent color (HSL)",
+        "default": "40 45% 59%"
+      },
+      {
+        "type": "text",
+        "id": "accent_foreground_hsl",
+        "label": "Accent foreground (HSL)",
+        "default": "210 52% 15%"
+      },
+      {
+        "type": "text",
+        "id": "background_hsl",
+        "label": "Background (HSL)",
+        "default": "0 0% 100%"
+      },
+      {
+        "type": "text",
+        "id": "foreground_hsl",
+        "label": "Foreground (HSL)",
+        "default": "210 29% 24%"
+      },
+      {
+        "type": "text",
+        "id": "font_heading",
+        "label": "Heading font stack",
+        "default": "'DM Serif Display', serif"
+      },
+      {
+        "type": "text",
+        "id": "font_body",
+        "label": "Body font stack",
+        "default": "'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif"
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+    <style>
+      :root {
+        --primary: {{ settings.primary_hsl | default: '210 52% 24%' }};
+        --primary-foreground: {{ settings.primary_foreground_hsl | default: '0 0% 100%' }};
+        --accent: {{ settings.accent_hsl | default: '40 45% 59%' }};
+        --accent-foreground: {{ settings.accent_foreground_hsl | default: '210 52% 15%' }};
+        --background: {{ settings.background_hsl | default: '0 0% 100%' }};
+        --foreground: {{ settings.foreground_hsl | default: '210 29% 24%' }};
+        --font-heading: {{ settings.font_heading | default: "'DM Serif Display', serif" }};
+        --font-body: {{ settings.font_body | default: "'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" }};
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+    <script src="{{ 'main.js' | asset_url }}" defer></script>
+  </body>
+</html>

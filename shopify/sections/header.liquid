@@ -1,0 +1,53 @@
+<header class="shopify-header">
+  <div class="page-width">
+    <a href="{{ routes.root_url }}" class="shopify-header__logo">
+      {% if section.settings.logo != blank %}
+        <img
+          src="{{ section.settings.logo | image_url: width: 240 }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo.width }}"
+          height="{{ section.settings.logo.height }}"
+          loading="lazy"
+        >
+      {% else %}
+        {{ section.settings.store_name | default: shop.name }}
+      {% endif %}
+    </a>
+
+    {% if section.settings.menu != blank %}
+      <nav class="shopify-header__nav" aria-label="{{ 'sections.header.menu' | t }}">
+        <ul class="shopify-header__nav-list">
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}" class="shopify-header__nav-link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "store_name",
+      "label": "Store name",
+      "default": "RSL Store"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}

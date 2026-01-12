@@ -1,0 +1,46 @@
+<footer class="shopify-footer">
+  <div class="page-width">
+    <div class="shopify-footer__content">
+      <div>
+        <h2 class="shopify-footer__heading">{{ section.settings.heading }}</h2>
+        <p class="shopify-footer__text">{{ section.settings.subtext }}</p>
+      </div>
+      {% if section.settings.menu != blank %}
+        <nav aria-label="Footer">
+          <ul class="shopify-footer__links">
+            {% for link in section.settings.menu.links %}
+              <li>
+                <a href="{{ link.url }}" class="shopify-footer__link">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stay connected"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Use the theme editor to customize this footer content."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}
