@@ -1,7 +1,6 @@
 import { Instagram, Linkedin, Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "@/i18n/LanguageContext";
-import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,9 +17,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="block mb-4">
-              <img src={logo} alt="Rodriguez Soporte Legal" className="h-12 w-auto brightness-0 invert" />
-            </Link>
+            <h3 className="font-serif text-2xl font-bold text-background mb-2">
+              Rodriguez Soporte Legal
+            </h3>
             <p className="text-background/70 mb-4 text-sm">
               {t.hero.title} {t.hero.titleAccent}
             </p>
