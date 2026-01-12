@@ -265,6 +265,10 @@ const Contact = () => {
                       He leído y acepto el{" "}
                       <a href="/aviso-de-privacidad" target="_blank" className="text-accent underline hover:no-underline">
                         Aviso de Privacidad
+                      </a>{" "}
+                      y los{" "}
+                      <a href="/terminos" target="_blank" className="text-accent underline hover:no-underline">
+                        Términos y Condiciones
                       </a>
                       . Autorizo el uso de mis datos para ser contactado.
                     </Label>
