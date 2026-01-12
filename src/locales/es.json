@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Inicio",
     "services": "Servicios",
     "practiceAreas": "Áreas de Práctica",
     "about": "Nosotros",
@@ -270,6 +271,9 @@
     "placeholder": "[PENDIENTE] Integrar sistema de citas. Por ahora, contáctanos por WhatsApp o teléfono para agendar."
   },
   "legal": {
+    "disclaimer": "Cada caso requiere análisis; agenda una consulta para evaluación.",
+    "privacyPolicy": "Aviso de Privacidad",
+    "termsConditions": "Términos y Condiciones",
     "privacy": {
       "title": "Aviso de Privacidad",
       "lastUpdated": "Última actualización",
