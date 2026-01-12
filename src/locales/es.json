@@ -321,6 +321,16 @@
     "back": "Volver",
     "more": "Ver más"
   },
+  "microcopy": {
+    "responseBadge": "Tiempo de Respuesta 24 h",
+    "whatsappCopy": "Atención inmediata por WhatsApp",
+    "trustCopy": "Documentación impecable y procesos claros",
+    "ctaShort": "Agendar cita",
+    "freeBadge": "Consulta inicial sin costo",
+    "experienceBadge": "+22 años de experiencia",
+    "preventionBadge": "Enfoque preventivo",
+    "guaranteeCopy": "Respuesta garantizada en 24 horas"
+  },
   "language": {
     "es": "Español",
     "en": "English",

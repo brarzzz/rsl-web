@@ -321,6 +321,16 @@
     "back": "Back",
     "more": "See more"
   },
+  "microcopy": {
+    "responseBadge": "24h Response Time",
+    "whatsappCopy": "Immediate attention via WhatsApp",
+    "trustCopy": "Impeccable documentation and clear processes",
+    "ctaShort": "Book appointment",
+    "freeBadge": "Free initial consultation",
+    "experienceBadge": "+22 years of experience",
+    "preventionBadge": "Preventive approach",
+    "guaranteeCopy": "Response guaranteed within 24 hours"
+  },
   "language": {
     "es": "Español",
     "en": "English",
