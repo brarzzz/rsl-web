@@ -74,7 +74,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-background/10">
+        {/* Disclaimer */}
+        <div className="py-6 border-t border-background/10">
+          <p className="text-background/60 text-sm text-center italic">
+            Cada caso requiere análisis; agenda una consulta para evaluación.
+          </p>
+        </div>
+
+        <div className="pt-6 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
               © {currentYear} Rodriguez, Integración de Servicios Jurídicos S.A. de C.V. Todos los derechos reservados.
@@ -84,7 +91,7 @@ const Footer = () => {
                 Aviso de Privacidad
               </Link>
               <Link to="/terminos" className="text-background/50 hover:text-accent transition-colors">
-                Términos de Servicio
+                Términos y Condiciones
               </Link>
             </div>
           </div>
