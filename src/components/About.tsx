@@ -121,7 +121,7 @@ const About = () => {
             <div className="w-12 h-12 rounded-xl bg-accent-foreground/20 flex items-center justify-center mb-4">
               <Eye className="h-6 w-6" />
             </div>
-            <h3 className="font-serif text-2xl font-bold mb-4 text-white">Nuestra Visión</h3>
+            <h3 className="font-serif text-2xl font-bold mb-4 text-neutral-800">Nuestra Visión</h3>
             <p className="text-accent-foreground/90 leading-relaxed">
               Ser la firma de referencia en prevención legal y documentación para emprendedores 
               y empresas en México, reconocida por su precisión técnica y tiempos de respuesta cortos.
