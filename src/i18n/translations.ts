@@ -81,8 +81,9 @@ export const translations = {
       badge: 'Nuestros Servicios',
       title: 'Soluciones legales para cada etapa',
       subtitle: 'Desde prevención hasta resolución de conflictos, te acompañamos con estrategias claras y resultados medibles.',
-      featured: 'Destacado',
+      featured: 'Servicio Estrella',
       moreInfo: 'Más información',
+      viewArea: 'Ver área',
       cta: 'Consultar sobre mi caso',
       items: {
         prevention: {
@@ -344,8 +345,9 @@ export const translations = {
       badge: 'Our Services',
       title: 'Legal solutions for every stage',
       subtitle: 'From prevention to conflict resolution, we accompany you with clear strategies and measurable results.',
-      featured: 'Featured',
+      featured: 'Star Service',
       moreInfo: 'More information',
+      viewArea: 'View area',
       cta: 'Consult about my case',
       items: {
         prevention: {
