@@ -1,0 +1,321 @@
+{
+  "nav": {
+    "services": "Services",
+    "practiceAreas": "Practice Areas",
+    "about": "About Us",
+    "team": "Team",
+    "contact": "Contact",
+    "booking": "Book Appointment"
+  },
+  "hero": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "titleAccent": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "bullet1": "[Pending translation]",
+    "bullet2": "[Pending translation]",
+    "bullet3": "[Pending translation]",
+    "ctaPrimary": "Request Quote",
+    "ctaSecondary": "Send WhatsApp",
+    "sla": "[Pending translation]"
+  },
+  "benefits": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "preventive": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "communication": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "response": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "documentation": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    }
+  },
+  "logoWall": {
+    "title": "[Pending translation]",
+    "placeholder": "Logo"
+  },
+  "testimonials": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "placeholderQuote": "[Pending translation]",
+    "comingSoon": "[Pending translation]"
+  },
+  "finalCta": {
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "ctaBooking": "Book Appointment",
+    "ctaWhatsapp": "Send WhatsApp",
+    "sla": "[Pending translation]"
+  },
+  "metrics": {
+    "lawyers": "[Pending translation]",
+    "years": "[Pending translation]",
+    "successRate": "[Pending translation]",
+    "consultations": "[Pending translation]",
+    "clients": "[Pending translation]",
+    "companies": "[Pending translation]"
+  },
+  "services": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "featured": "Star Service",
+    "moreInfo": "More information",
+    "viewArea": "View area",
+    "cta": "[Pending translation]",
+    "items": {
+      "prevention": {
+        "name": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "commercial": {
+        "name": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "civil": {
+        "name": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "family": {
+        "name": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "contracts": {
+        "name": "[Pending translation]",
+        "description": "[Pending translation]"
+      }
+    }
+  },
+  "about": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "history": "[Pending translation]",
+    "evolution": "[Pending translation]",
+    "mission": "[Pending translation]",
+    "missionTitle": "Our Mission",
+    "visionTitle": "Our Vision",
+    "vision": "[Pending translation]",
+    "philosophyTitle": "Our Philosophy",
+    "philosophy": "[Pending translation]",
+    "valuesTitle": "Our Values",
+    "differentiators": "What sets us apart",
+    "values": {
+      "integrity": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "commitment": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "excellence": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "responsibility": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      }
+    },
+    "diffs": {
+      "contemporary": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "preventive": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "communication": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      },
+      "digital": {
+        "label": "[Pending translation]",
+        "description": "[Pending translation]"
+      }
+    }
+  },
+  "team": {
+    "badge": "[Pending translation]",
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "years": "years",
+    "viewProfile": "View profile",
+    "members": {
+      "jorge": {
+        "name": "Jorge Luis Rodriguez",
+        "role": "[Pending translation]",
+        "expertise": "Corporate",
+        "bio": "[Pending translation]"
+      },
+      "ramon": {
+        "name": "Ramón Antonio Rodriguez",
+        "role": "[Pending translation]",
+        "expertise": "Civil",
+        "bio": "[Pending translation]"
+      },
+      "gerardo": {
+        "name": "Gerardo Alejandro López",
+        "role": "[Pending translation]",
+        "expertise": "Litigation",
+        "bio": "[Pending translation]"
+      },
+      "dana": {
+        "name": "Dana Paola Salazar",
+        "role": "[Pending translation]",
+        "expertise": "Family",
+        "bio": "[Pending translation]"
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "subject": "Subject",
+      "message": "How can we help you?",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "phonePlaceholder": "667 123 4567",
+      "subjectPlaceholder": "Select a subject",
+      "messagePlaceholder": "Briefly tell us about your situation...",
+      "submit": "Request Quote",
+      "whatsapp": "WhatsApp",
+      "sending": "Sending...",
+      "required": "*",
+      "consent": "[Pending translation]",
+      "subjectOptions": {
+        "consulting": "[Pending translation]",
+        "commercial": "[Pending translation]",
+        "civil": "[Pending translation]",
+        "family": "[Pending translation]",
+        "contracts": "[Pending translation]",
+        "other": "Other"
+      }
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailInvalid": "Invalid email",
+      "phoneRequired": "Phone is required",
+      "phoneInvalid": "Enter a valid phone (minimum 10 digits)",
+      "subjectRequired": "Select or enter a subject",
+      "messageRequired": "Message is required",
+      "messageMin": "Message must be at least 10 characters",
+      "consentRequired": "You must accept the privacy policy"
+    },
+    "success": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]",
+      "whatsappNow": "Send WhatsApp now",
+      "sendAnother": "Send another message"
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Hours",
+      "addressValue": "[Pending translation]",
+      "hoursValue": "[Pending translation]"
+    },
+    "callPreference": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "map": {
+      "location": "Culiacán, Sinaloa, México",
+      "viewOnMaps": "View on Google Maps"
+    },
+    "disclaimer": "[Pending translation]"
+  },
+  "footer": {
+    "tagline": "[Pending translation]",
+    "links": "Links",
+    "servicesTitle": "Services",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "disclaimer": "[Pending translation]"
+  },
+  "booking": {
+    "title": "[Pending translation]",
+    "subtitle": "[Pending translation]",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time",
+    "availableSlots": "Available slots",
+    "noSlots": "No available slots for this date",
+    "confirm": "Confirm appointment",
+    "step1": "Select date",
+    "step2": "Choose time",
+    "step3": "Confirm details",
+    "placeholder": "[Pending translation]"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated",
+      "owner": "Controller",
+      "content": "[Pending translation]"
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "lastUpdated": "Last updated",
+      "content": "[Pending translation]"
+    }
+  },
+  "practiceAreas": {
+    "title": "Practice Areas",
+    "subtitle": "[Pending translation]",
+    "learnMore": "Learn more",
+    "backToAreas": "Back to Areas",
+    "backToTeam": "Back to team",
+    "relatedServices": "Related services",
+    "consultation": "Request consultation"
+  },
+  "teamProfile": {
+    "aboutMe": "About me",
+    "experience": "Experience",
+    "education": "Education",
+    "languages": "Languages",
+    "specialty": "Specialty",
+    "yearsExperience": "years practicing law",
+    "inLaw": "in Law",
+    "needAdvice": "Need advice?",
+    "scheduleWith": "Schedule a consultation with",
+    "toReviewCase": "to review your case.",
+    "sendWhatsapp": "Send WhatsApp",
+    "scheduleAppointment": "Schedule appointment",
+    "additionalInfo": "Additional information",
+    "memberships": "Memberships",
+    "professionalId": "Professional ID",
+    "comingSoon": "Coming soon",
+    "notFound": "Member not found"
+  },
+  "common": {
+    "whatsappMessage": "Hello RSL, I would like to request a quote",
+    "loading": "Loading...",
+    "error": "An error has occurred",
+    "back": "Back",
+    "more": "See more"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switch": "Change language"
+  }
+}

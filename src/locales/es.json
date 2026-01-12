@@ -1,0 +1,321 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "practiceAreas": "Áreas de Práctica",
+    "about": "Nosotros",
+    "team": "Equipo",
+    "contact": "Contacto",
+    "booking": "Agendar Cita"
+  },
+  "hero": {
+    "badge": "+22 años protegiendo negocios en Culiacán",
+    "title": "Protegemos tu negocio.",
+    "titleAccent": "Respaldamos tu crecimiento.",
+    "subtitle": "Prevención, contratos y defensa civil con lenguaje claro. Respuesta en 24 h.",
+    "bullet1": "Prevención para PYMEs",
+    "bullet2": "Gobierno corporativo y contratos",
+    "bullet3": "Atención cercana",
+    "ctaPrimary": "Solicitar Cotización",
+    "ctaSecondary": "Enviar WhatsApp",
+    "sla": "Respuesta en menos de 24 horas • Lun–Vie 9:00–19:00"
+  },
+  "benefits": {
+    "badge": "Por qué RSL",
+    "title": "¿Por qué elegirnos?",
+    "subtitle": "Combinamos experiencia legal con procesos modernos para proteger tu negocio.",
+    "preventive": {
+      "title": "Enfoque preventivo",
+      "description": "Anticipamos riesgos legales antes de que se conviertan en problemas costosos."
+    },
+    "communication": {
+      "title": "Comunicación clara",
+      "description": "Sin tecnicismos innecesarios. Entenderás cada paso del proceso."
+    },
+    "response": {
+      "title": "Tiempos de respuesta",
+      "description": "Respuesta garantizada en 24 horas. Tu tiempo es valioso."
+    },
+    "documentation": {
+      "title": "Documentación impecable",
+      "description": "Contratos y documentos precisos que protegen tus intereses."
+    }
+  },
+  "logoWall": {
+    "title": "Confían en nosotros",
+    "placeholder": "Logo"
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación.",
+    "placeholderQuote": "Próximamente agregaremos testimonios reales de nuestros clientes.",
+    "comingSoon": "Pronto agregaremos testimonios de clientes reales."
+  },
+  "finalCta": {
+    "title": "¿Listo para proteger tu negocio?",
+    "subtitle": "Agenda una cita o contáctanos por WhatsApp. Te respondemos en menos de 24 horas.",
+    "ctaBooking": "Agendar Cita",
+    "ctaWhatsapp": "Enviar WhatsApp",
+    "sla": "Sin costo de consulta inicial • Respuesta en 24 horas"
+  },
+  "metrics": {
+    "lawyers": "Abogados profesionales",
+    "years": "Años de experiencia",
+    "successRate": "Tasa de éxito",
+    "consultations": "Consultas atendidas",
+    "clients": "Clientes satisfechos",
+    "companies": "Empresas activas"
+  },
+  "services": {
+    "badge": "Nuestros Servicios",
+    "title": "Soluciones legales para cada etapa",
+    "subtitle": "Desde prevención hasta resolución de conflictos, te acompañamos con estrategias claras y resultados medibles.",
+    "featured": "Servicio Estrella",
+    "moreInfo": "Más información",
+    "viewArea": "Ver área",
+    "cta": "Consultar sobre mi caso",
+    "items": {
+      "prevention": {
+        "name": "Prevención y Consultoría Legal",
+        "description": "Diseños preventivos, auditoría básica de riesgos, políticas y contratos para emprendedores y PYMEs."
+      },
+      "commercial": {
+        "name": "Mercantil y Corporativo",
+        "description": "Constitución y gobierno corporativo, actas, socios, fusiones/escisiones básicas, compliance mercantil."
+      },
+      "civil": {
+        "name": "Civil e Inmobiliario",
+        "description": "Posesión, declarativas, regularización, contratos civiles, recuperación y defensa de inmueble."
+      },
+      "family": {
+        "name": "Derecho Familiar",
+        "description": "Divorcios, convenios, guardia y custodia, convenios patrimoniales, juicios sucesorios."
+      },
+      "contracts": {
+        "name": "Contratos y Cumplimiento",
+        "description": "Redacción, revisión y negociación B2B/B2C; cláusulas de riesgo y garantías."
+      }
+    }
+  },
+  "about": {
+    "badge": "Sobre Nosotros",
+    "title": "Prevenir vale más que litigar",
+    "history": "Nacimos en Culiacán con una idea simple: prevenir vale más que litigar. Empezamos atendiendo a emprendedores y PYMEs que necesitaban ordenar contratos, cumplir normativas y cobrar a tiempo.",
+    "evolution": "Adoptamos flujos para revisar documentos, estandarizar checklists y acelerar respuestas. Hoy combinamos consultoría preventiva con defensa estratégica cuando es necesario, manteniendo un lenguaje claro y entregables accionables.",
+    "mission": "Nuestra misión: proteger y acelerar los negocios de nuestros clientes mediante asesoría legal preventiva, documentación impecable y estrategias que disminuyan riesgos, costos y tiempos.",
+    "missionTitle": "Nuestra Misión",
+    "visionTitle": "Nuestra Visión",
+    "vision": "Ser la firma de referencia en prevención legal y documentación para emprendedores y empresas en México, reconocida por su precisión técnica y tiempos de respuesta cortos.",
+    "philosophyTitle": "Nuestra Filosofía",
+    "philosophy": "Somos un despacho moderno, accesible, orientado a prevención y uso de tecnología para eficiencia.",
+    "valuesTitle": "Nuestros Valores",
+    "differentiators": "Lo que nos diferencia",
+    "values": {
+      "integrity": {
+        "label": "Integridad",
+        "description": "Actuamos con honestidad y transparencia."
+      },
+      "commitment": {
+        "label": "Compromiso",
+        "description": "Tu objetivo es nuestro objetivo."
+      },
+      "excellence": {
+        "label": "Excelencia",
+        "description": "Buscamos los mejores resultados."
+      },
+      "responsibility": {
+        "label": "Responsabilidad",
+        "description": "Cuidamos cada detalle de tu caso."
+      }
+    },
+    "diffs": {
+      "contemporary": {
+        "label": "Estilo contemporáneo",
+        "description": "Enfoque moderno y digital-first."
+      },
+      "preventive": {
+        "label": "Enfoque preventivo",
+        "description": "Prevenir siempre es mejor que litigar."
+      },
+      "communication": {
+        "label": "Comunicación clara",
+        "description": "Sin jerga legal innecesaria."
+      },
+      "digital": {
+        "label": "Herramientas digitales",
+        "description": "Eficiencia con tecnología."
+      }
+    }
+  },
+  "team": {
+    "badge": "Nuestro Equipo",
+    "title": "Profesionales comprometidos",
+    "subtitle": "Un equipo multidisciplinario con experiencia en distintas áreas del derecho, unido por el compromiso de proteger tus intereses.",
+    "years": "años",
+    "viewProfile": "Ver perfil",
+    "members": {
+      "jorge": {
+        "name": "Jorge Luis Rodriguez",
+        "role": "Founder, CEO y Socio Director",
+        "expertise": "Corporativo",
+        "bio": "Creo firmemente que lo legal debe ser una herramienta para avanzar, no un freno. Por eso mi enfoque es práctico - entender cómo funciona tu negocio, detectar riesgos antes de que se conviertan en problemas y dejar acuerdos claros que den tranquilidad para operar y crecer."
+      },
+      "ramon": {
+        "name": "Ramón Antonio Rodriguez",
+        "role": "Abogado Senior",
+        "expertise": "Civil",
+        "bio": "En lo civil, los detalles importan. Por eso mi manera de trabajar es revisar a fondo, ordenar documentos y construir una estrategia que se sostenga con hechos."
+      },
+      "gerardo": {
+        "name": "Gerardo Alejandro López",
+        "role": "Abogado Junior",
+        "expertise": "Litigio",
+        "bio": "Me apasiona el trabajo jurídico y legal bien hecho. En RSL participo en el análisis y preparación de asuntos, cuidando la documentación, el seguimiento y los tiempos."
+      },
+      "dana": {
+        "name": "Dana Paola Salazar",
+        "role": "Abogada Junior",
+        "expertise": "Familiar",
+        "bio": "En RSL participo en la preparación y desarrollo de asuntos, cuidando documentación, plazos y comunicación, para que el cliente tenga claridad en cada etapa."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "¿Listo para proteger tu negocio?",
+    "subtitle": "Cuéntanos tu situación y te responderemos en menos de 24 horas con una propuesta clara y sin compromiso.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono / WhatsApp",
+      "subject": "Asunto",
+      "message": "¿Cómo podemos ayudarte?",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@email.com",
+      "phonePlaceholder": "667 123 4567",
+      "subjectPlaceholder": "Selecciona un asunto",
+      "messagePlaceholder": "Cuéntanos brevemente tu situación...",
+      "submit": "Solicitar Cotización",
+      "whatsapp": "WhatsApp",
+      "sending": "Enviando...",
+      "required": "*",
+      "consent": "He leído y acepto el Aviso de Privacidad y los Términos y Condiciones. Autorizo el uso de mis datos para ser contactado.",
+      "subjectOptions": {
+        "consulting": "Consultoría empresarial",
+        "commercial": "Derecho mercantil/corporativo",
+        "civil": "Derecho civil/inmobiliario",
+        "family": "Derecho familiar",
+        "contracts": "Contratos",
+        "other": "Otro"
+      }
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "emailInvalid": "Email inválido",
+      "phoneRequired": "El teléfono es requerido",
+      "phoneInvalid": "Ingresa un teléfono válido (mínimo 10 dígitos)",
+      "subjectRequired": "Selecciona o escribe un asunto",
+      "messageRequired": "El mensaje es requerido",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres",
+      "consentRequired": "Debes aceptar el aviso de privacidad"
+    },
+    "success": {
+      "title": "¡Gracias por contactarnos!",
+      "description": "Hemos recibido tu mensaje. Un miembro de nuestro equipo te contactará en menos de 24 horas para atender tu consulta.",
+      "whatsappNow": "Enviar WhatsApp ahora",
+      "sendAnother": "Enviar otro mensaje"
+    },
+    "info": {
+      "phone": "Teléfono",
+      "email": "Email",
+      "address": "Dirección",
+      "hours": "Horario",
+      "addressValue": "Calle Rio Culiacán 113 Poniente, entre Domingo Rubí y Manuel Bonilla, Col. Guadalupe, Culiacán, Sinaloa",
+      "hoursValue": "Lun – Vie: 9:00am – 2:00pm / 4:00pm – 7:00pm\nSáb: 10:00am – 1:00pm"
+    },
+    "callPreference": {
+      "title": "¿Prefieres llamar?",
+      "description": "Nuestro equipo está disponible en horario de oficina."
+    },
+    "map": {
+      "location": "Culiacán, Sinaloa, México",
+      "viewOnMaps": "Ver en Google Maps"
+    },
+    "disclaimer": "Cada caso requiere análisis; agenda una consulta para evaluación."
+  },
+  "footer": {
+    "tagline": "Protegemos tu negocio. Respaldamos tu crecimiento. Asesoría legal preventiva y estratégica desde 2003.",
+    "links": "Enlaces",
+    "servicesTitle": "Servicios",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Aviso de Privacidad",
+    "terms": "Términos y Condiciones",
+    "disclaimer": "Cada caso requiere análisis; agenda una consulta para evaluación."
+  },
+  "booking": {
+    "title": "Agenda tu cita",
+    "subtitle": "Selecciona una fecha y hora disponible para tu consulta inicial.",
+    "selectDate": "Selecciona una fecha",
+    "selectTime": "Selecciona una hora",
+    "availableSlots": "Horarios disponibles",
+    "noSlots": "No hay horarios disponibles para esta fecha",
+    "confirm": "Confirmar cita",
+    "step1": "Selecciona fecha",
+    "step2": "Elige horario",
+    "step3": "Confirma datos",
+    "placeholder": "[PENDIENTE] Integrar sistema de citas. Por ahora, contáctanos por WhatsApp o teléfono para agendar."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Aviso de Privacidad",
+      "lastUpdated": "Última actualización",
+      "owner": "Responsable",
+      "content": "[PENDIENTE] Contenido completo del Aviso de Privacidad conforme a la LFPDPPP."
+    },
+    "terms": {
+      "title": "Términos y Condiciones",
+      "lastUpdated": "Última actualización",
+      "content": "[PENDIENTE] Contenido completo de los Términos y Condiciones."
+    }
+  },
+  "practiceAreas": {
+    "title": "Áreas de Práctica",
+    "subtitle": "Conoce en detalle nuestras especialidades legales y cómo podemos ayudarte.",
+    "learnMore": "Conocer más",
+    "backToAreas": "Volver a Áreas",
+    "backToTeam": "Volver al equipo",
+    "relatedServices": "Servicios relacionados",
+    "consultation": "Solicitar consulta"
+  },
+  "teamProfile": {
+    "aboutMe": "Sobre mí",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "languages": "Idiomas",
+    "specialty": "Especialidad",
+    "yearsExperience": "años ejerciendo el derecho",
+    "inLaw": "en Derecho",
+    "needAdvice": "¿Necesitas asesoría?",
+    "scheduleWith": "Agenda una consulta con",
+    "toReviewCase": "para revisar tu caso.",
+    "sendWhatsapp": "Enviar WhatsApp",
+    "scheduleAppointment": "Agendar cita",
+    "additionalInfo": "Información adicional",
+    "memberships": "Membresías",
+    "professionalId": "Cédula profesional",
+    "comingSoon": "Próximamente",
+    "notFound": "Miembro no encontrado"
+  },
+  "common": {
+    "whatsappMessage": "Hola RSL, quisiera solicitar cotización",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "back": "Volver",
+    "more": "Ver más"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switch": "Cambiar idioma"
+  }
+}
