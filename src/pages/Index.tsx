@@ -11,13 +11,24 @@ import FinalCTA from "@/components/FinalCTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import SchemaMarkup from "@/components/SchemaMarkup";
+import SEOHead, { organizationSchema, legalServiceSchema, websiteSchema } from "@/components/SEOHead";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup type="organization" />
-      <SchemaMarkup type="legalService" />
+      <SEOHead
+        title="Abogados en Culiacán | Rodriguez Soporte Legal"
+        description="Despacho jurídico en Culiacán con +22 años de experiencia. Derecho mercantil, corporativo, civil y familiar. Respuesta en 24 horas."
+        keywords={[
+          'abogados en Culiacán Sinaloa',
+          'despacho jurídico en Culiacán',
+          'asesoría legal empresarial Culiacán',
+          'abogado mercantil Culiacán',
+        ]}
+        canonical="https://soportelegal.com.mx/"
+        schema={[organizationSchema, legalServiceSchema, websiteSchema]}
+      />
+      <Navbar />
       <Navbar />
       <main>
         <Hero />
