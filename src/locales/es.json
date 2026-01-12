@@ -42,13 +42,17 @@
   },
   "logoWall": {
     "title": "Confían en nosotros",
-    "placeholder": "Logo"
+    "placeholder": "Logo",
+    "comingSoon": "Logos de clientes próximamente"
   },
   "testimonials": {
     "badge": "Testimonios",
     "title": "Lo que dicen nuestros clientes",
     "subtitle": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación.",
-    "placeholderQuote": "Próximamente agregaremos testimonios reales de nuestros clientes.",
+    "placeholderQuote": "Nos ayudaron a constituir nuestra empresa de forma rápida y profesional. El seguimiento fue impecable.",
+    "placeholderQuote2": "Resolvieron un tema de prescripción que teníamos pendiente por años. Muy recomendados.",
+    "placeholderQuote3": "Contratos claros y bien estructurados. Nos dieron tranquilidad para operar con confianza.",
+    "placeholderQuote4": "Su enfoque preventivo nos ahorró problemas costosos. Respuesta rápida y soluciones prácticas.",
     "comingSoon": "Pronto agregaremos testimonios de clientes reales."
   },
   "finalCta": {

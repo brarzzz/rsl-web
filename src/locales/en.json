@@ -42,13 +42,17 @@
   },
   "logoWall": {
     "title": "[Pending translation]",
-    "placeholder": "Logo"
+    "placeholder": "Logo",
+    "comingSoon": "[Pending translation]"
   },
   "testimonials": {
     "badge": "[Pending translation]",
     "title": "[Pending translation]",
     "subtitle": "[Pending translation]",
     "placeholderQuote": "[Pending translation]",
+    "placeholderQuote2": "[Pending translation]",
+    "placeholderQuote3": "[Pending translation]",
+    "placeholderQuote4": "[Pending translation]",
     "comingSoon": "[Pending translation]"
   },
   "finalCta": {
