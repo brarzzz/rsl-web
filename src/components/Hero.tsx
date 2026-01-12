@@ -19,11 +19,19 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
+      {/* Background Image - with explicit dimensions for CLS prevention */}
+      <img
+        src={heroBg}
+        alt=""
+        role="presentation"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
       
       {/* Overlay */}
@@ -43,6 +51,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1
+            id="hero-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -70,7 +79,7 @@ const Hero = () => {
           >
             {bullets.map((bullet, index) => (
               <div key={index} className="flex items-center gap-2 text-primary-foreground/90">
-                <CheckCircle className="h-4 w-4 text-accent" />
+                <CheckCircle className="h-4 w-4 text-accent" aria-hidden="true" />
                 <span className="text-sm sm:text-base">{bullet}</span>
               </div>
             ))}
@@ -83,13 +92,18 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="heroGold" size="xl" asChild>
-              <a href="#contacto">
+              <a href="#contacto" aria-label={t.hero.ctaPrimary}>
                 {t.hero.ctaPrimary}
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>
-            <Button variant="heroOutline" size="xl" onClick={handleWhatsApp}>
-              <Phone className="h-5 w-5" />
+            <Button 
+              variant="heroOutline" 
+              size="xl" 
+              onClick={handleWhatsApp}
+              aria-label={`${t.hero.ctaSecondary} - Abre WhatsApp en nueva ventana`}
+            >
+              <Phone className="h-5 w-5" aria-hidden="true" />
               {t.hero.ctaSecondary}
             </Button>
           </motion.div>

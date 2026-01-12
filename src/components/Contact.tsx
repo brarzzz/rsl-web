@@ -139,7 +139,7 @@ const Contact = () => {
           >
             {isSuccess ? (
               <div className="bg-card rounded-xl p-8 sm:p-12 shadow-xl text-center">
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6" aria-hidden="true">
                   <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
@@ -150,8 +150,12 @@ const Contact = () => {
                   en menos de 24 horas para atender tu consulta.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button onClick={handleWhatsApp} variant="whatsapp">
-                    <MessageCircle className="h-4 w-4" />
+                  <Button 
+                    onClick={handleWhatsApp} 
+                    variant="whatsapp"
+                    aria-label="Enviar mensaje por WhatsApp - Abre en nueva ventana"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
                     Enviar WhatsApp ahora
                   </Button>
                   <Button onClick={resetForm} variant="outline">
@@ -160,11 +164,12 @@ const Contact = () => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 sm:p-8 shadow-xl">
+              <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 sm:p-8 shadow-xl" noValidate aria-label="Formulario de contacto">
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <Label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                      Nombre completo *
+                      Nombre completo <span aria-hidden="true">*</span>
+                      <span className="sr-only">(requerido)</span>
                     </Label>
                     <Input
                       id="name"
@@ -173,13 +178,18 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Tu nombre"
                       maxLength={100}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "name-error" : undefined}
                       className={errors.name ? "border-destructive" : ""}
                     />
-                    {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+                    {errors.name && <p id="name-error" className="text-xs text-destructive mt-1" role="alert">{errors.name}</p>}
                   </div>
                   <div>
                     <Label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                      Correo electrónico *
+                      Correo electrónico <span aria-hidden="true">*</span>
+                      <span className="sr-only">(requerido)</span>
                     </Label>
                     <Input
                       id="email"
@@ -189,38 +199,54 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="tu@email.com"
                       maxLength={255}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "email-error" : undefined}
                       className={errors.email ? "border-destructive" : ""}
                     />
-                    {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+                    {errors.email && <p id="email-error" className="text-xs text-destructive mt-1" role="alert">{errors.email}</p>}
                   </div>
                 </div>
                 
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <Label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
-                      Teléfono / WhatsApp *
+                      Teléfono / WhatsApp <span aria-hidden="true">*</span>
+                      <span className="sr-only">(requerido)</span>
                     </Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="667 123 4567"
                       maxLength={20}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? "phone-error" : undefined}
                       className={errors.phone ? "border-destructive" : ""}
                     />
-                    {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
+                    {errors.phone && <p id="phone-error" className="text-xs text-destructive mt-1" role="alert">{errors.phone}</p>}
                   </div>
                   <div>
                     <Label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1.5">
-                      Asunto *
+                      Asunto <span aria-hidden="true">*</span>
+                      <span className="sr-only">(requerido)</span>
                     </Label>
                     <select
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.subject}
+                      aria-describedby={errors.subject ? "subject-error" : undefined}
                       className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.subject ? "border-destructive" : ""}`}
                     >
                       <option value="">Selecciona un asunto</option>
@@ -228,13 +254,14 @@ const Contact = () => {
                         <option key={option} value={option}>{option}</option>
                       ))}
                     </select>
-                    {errors.subject && <p className="text-xs text-destructive mt-1">{errors.subject}</p>}
+                    {errors.subject && <p id="subject-error" className="text-xs text-destructive mt-1" role="alert">{errors.subject}</p>}
                   </div>
                 </div>
                 
                 <div className="mb-4">
                   <Label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
-                    ¿Cómo podemos ayudarte? *
+                    ¿Cómo podemos ayudarte? <span aria-hidden="true">*</span>
+                    <span className="sr-only">(requerido)</span>
                   </Label>
                   <Textarea
                     id="message"
@@ -244,11 +271,15 @@ const Contact = () => {
                     placeholder="Cuéntanos brevemente tu situación..."
                     rows={4}
                     maxLength={1000}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? "message-error" : "message-counter"}
                     className={errors.message ? "border-destructive" : ""}
                   />
                   <div className="flex justify-between mt-1">
-                    {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
-                    <p className="text-xs text-muted-foreground ml-auto">{formData.message.length}/1000</p>
+                    {errors.message && <p id="message-error" className="text-xs text-destructive" role="alert">{errors.message}</p>}
+                    <p id="message-counter" className="text-xs text-muted-foreground ml-auto" aria-live="polite">{formData.message.length}/1000</p>
                   </div>
                 </div>
 
@@ -278,11 +309,17 @@ const Contact = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button type="submit" variant="gold" size="lg" className="flex-1" disabled={isSubmitting}>
-                    <Send className="h-4 w-4" />
+                    <Send className="h-4 w-4" aria-hidden="true" />
                     {isSubmitting ? "Enviando..." : "Solicitar Cotización"}
                   </Button>
-                  <Button type="button" variant="whatsapp" size="lg" onClick={handleWhatsApp}>
-                    <MessageCircle className="h-4 w-4" />
+                  <Button 
+                    type="button" 
+                    variant="whatsapp" 
+                    size="lg" 
+                    onClick={handleWhatsApp}
+                    aria-label="Contactar por WhatsApp - Abre en nueva ventana"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
                     WhatsApp
                   </Button>
                 </div>
@@ -309,7 +346,7 @@ const Contact = () => {
                 transition={{ duration: 0.4, delay: 0.4 }}
                 className="flex items-start gap-4"
               >
-                <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <Phone className="h-5 w-5 text-accent" />
                 </div>
                 <div>

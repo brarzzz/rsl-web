@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground py-12">
+    <footer className="bg-foreground py-12" role="contentinfo" aria-label="Pie de página">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -22,23 +22,25 @@ const Footer = () => {
                 href="https://instagram.com/rodriguez.soportelegal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Visitar nuestro Instagram - Abre en nueva ventana"
               >
-                <Instagram className="h-5 w-5 text-background" />
+                <Instagram className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Visitar nuestro LinkedIn - Abre en nueva ventana"
               >
-                <Linkedin className="h-5 w-5 text-background" />
+                <Linkedin className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav aria-label="Enlaces rápidos">
             <h4 className="font-semibold text-background mb-4">Enlaces</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               <li>
                 <a href="#servicios" className="text-background/70 hover:text-accent transition-colors">
                   Servicios
@@ -60,12 +62,12 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
           <div>
             <h4 className="font-semibold text-background mb-4">Servicios</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               <li className="text-background/70">Derecho Mercantil</li>
               <li className="text-background/70">Derecho Corporativo</li>
               <li className="text-background/70">Derecho Civil</li>
