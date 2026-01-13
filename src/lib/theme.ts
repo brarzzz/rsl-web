@@ -3,31 +3,41 @@
  * 
  * This file exposes design tokens as JavaScript constants for programmatic use.
  * These values mirror the CSS custom properties defined in index.css
+ * 
+ * IMPORTANT: All HEX values are derived from src/theme/tokens.ts
+ * Update tokens.ts to change colors globally.
  */
+
+import tokens from '@/theme/tokens';
 
 export const colors = {
   primary: {
-    DEFAULT: '#1E3A5F',
-    foreground: '#FFFFFF',
-    hsl: '210 52% 24%',
+    DEFAULT: tokens.colors.primary,
+    foreground: tokens.colors.bg,
+    hsl: tokens.colors.hsl.primary,
   },
   accent: {
-    DEFAULT: '#C4A76B',
-    foreground: '#1E3A5F',
-    hsl: '40 45% 59%',
+    DEFAULT: tokens.colors.accent,
+    foreground: tokens.colors.primary,
+    hsl: tokens.colors.hsl.accent,
   },
   success: {
-    DEFAULT: '#4A7856',
-    foreground: '#FFFFFF',
-    hsl: '140 25% 40%',
+    DEFAULT: tokens.colors.success,
+    foreground: tokens.colors.bg,
+    hsl: tokens.colors.hsl.success,
   },
   neutral: {
-    DEFAULT: '#B5B5B5',
-    foreground: '#1E3A5F',
-    hsl: '0 0% 71%',
+    DEFAULT: tokens.colors.neutral,
+    foreground: tokens.colors.primary,
+    hsl: tokens.colors.hsl.neutral,
   },
-  white: '#FFFFFF',
-  black: '#000000',
+  whatsapp: {
+    DEFAULT: tokens.colors.whatsapp,
+    hover: tokens.colors.whatsappHover,
+    hsl: tokens.colors.hsl.whatsapp,
+  },
+  white: tokens.colors.bg,
+  black: tokens.colors.text,
 } as const;
 
 export const typography = {

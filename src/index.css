@@ -9,24 +9,41 @@
 @layer base {
   :root {
     /* ===========================================
-       COLOR TOKENS
+       RSL GLOBAL TOKENS (mirrors src/theme/tokens.ts)
+       =========================================== */
+    --rsl-primary: #1E3A5F;
+    --rsl-success: #4A7856;
+    --rsl-accent: #C4A76B;
+    --rsl-neutral: #B5B5B5;
+    --rsl-bg: #FFFFFF;
+    --rsl-text: #000000;
+    --rsl-whatsapp: #25D366;
+    --rsl-whatsapp-hover: #20BD5A;
+
+    /* ===========================================
+       COLOR TOKENS (HSL for Tailwind)
        =========================================== */
     
-    /* Primary - Deep Navy Blue (#1E3A5F) */
+    /* Primary - Deep Navy Blue */
     --primary: 210 52% 24%;
     --primary-foreground: 0 0% 100%;
     
-    /* Accent - Gold (#C4A76B) */
+    /* Accent - Gold */
     --accent: 40 45% 59%;
     --accent-foreground: 210 52% 15%;
     
-    /* Success - Green (#4A7856) */
+    /* Success - Green */
     --success: 140 25% 40%;
     --success-foreground: 0 0% 100%;
     
-    /* Neutral - Gray (#B5B5B5) */
+    /* Neutral - Gray */
     --neutral: 0 0% 71%;
     --neutral-foreground: 210 29% 24%;
+    
+    /* WhatsApp */
+    --whatsapp: 142 70% 49%;
+    --whatsapp-hover: 142 70% 44%;
+    --whatsapp-foreground: 0 0% 100%;
     
     /* Semantic Colors */
     --background: 0 0% 100%;

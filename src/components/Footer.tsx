@@ -44,10 +44,10 @@ const Footer = () => {
               </a>
               <button
                 onClick={handleWhatsApp}
-                className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center hover:bg-[#25D366]/30 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="w-10 h-10 rounded-full bg-whatsapp/20 flex items-center justify-center hover:bg-whatsapp/30 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Contactar por WhatsApp - Abre en nueva ventana"
               >
-                <MessageCircle className="h-5 w-5 text-[#25D366]" aria-hidden="true" />
+                <MessageCircle className="h-5 w-5 text-whatsapp" aria-hidden="true" />
               </button>
             </div>
           </div>
