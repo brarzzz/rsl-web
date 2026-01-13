@@ -130,7 +130,7 @@ const Hero = (props: Partial<HeroProps>) => {
                 size="xl" 
                 onClick={ctaSecondaryHref ? undefined : handleWhatsApp}
                 asChild={!!ctaSecondaryHref}
-                aria-label={`${ctaSecondaryText} - Abre WhatsApp en nueva ventana`}
+                aria-label={`${ctaSecondaryText} - ${t.aria?.whatsappNewWindow || ''}`}
               >
                 {ctaSecondaryHref ? (
                   <a href={ctaSecondaryHref}>

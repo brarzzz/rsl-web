@@ -17,7 +17,7 @@ const StickyMobileCTA = (props: StickyMobileCTAProps) => {
     text,
     href,
     show = true,
-    ariaLabel = "Enviar mensaje por WhatsApp - Abre en nueva ventana",
+    ariaLabel = t.aria?.sendWhatsappNewWindow || "Send WhatsApp message",
   } = props;
 
   const handleClick = () => {
