@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { siteConfig } from "@/config/siteConfig";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -95,11 +96,7 @@ const Contact = () => {
 
   const handleWhatsApp = () => {
     const sanitizedName = formData.name.trim().slice(0, 50);
-    const baseMessage = "Hola, Licenciado, quisiera solicitar cotización";
-    const message = sanitizedName 
-      ? encodeURIComponent(`${baseMessage}. Mi nombre es ${sanitizedName}.`)
-      : encodeURIComponent(baseMessage);
-    window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
+    window.open(siteConfig.whatsappLinkWithName(siteConfig.ctas.primary.toLowerCase(), sanitizedName || undefined), "_blank");
   };
 
   const resetForm = () => {
@@ -351,8 +348,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-primary-foreground/70">Teléfono</h3>
-                  <a href="tel:+526677522429" className="text-primary-foreground hover:text-accent transition-colors">
-                    667 752 2429
+                  <a href={`tel:+52${siteConfig.phone}`} className="text-primary-foreground hover:text-accent transition-colors">
+                    {siteConfig.phoneFormatted}
                   </a>
                 </div>
               </motion.div>
@@ -369,8 +366,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-sm font-medium text-primary-foreground/70">Email</h3>
-                  <a href="mailto:jorgeluis@soportelegal.com.mx" className="text-primary-foreground hover:text-accent transition-colors break-all">
-                    jorgeluis@soportelegal.com.mx
+                  <a href={`mailto:${siteConfig.email}`} className="text-primary-foreground hover:text-accent transition-colors break-all">
+                    {siteConfig.email}
                   </a>
                 </div>
               </motion.div>
@@ -388,9 +385,8 @@ const Contact = () => {
                 <div>
                   <h3 className="text-sm font-medium text-primary-foreground/70">Dirección</h3>
                   <p className="text-primary-foreground">
-                    Calle Rio Culiacán 113 Poniente,<br />
-                    entre Domingo Rubí y Manuel Bonilla,<br />
-                    Col. Guadalupe, Culiacán, Sinaloa
+                    {siteConfig.address}<br />
+                    {siteConfig.cityState}
                   </p>
                 </div>
               </motion.div>
@@ -408,8 +404,7 @@ const Contact = () => {
                 <div>
                   <h3 className="text-sm font-medium text-primary-foreground/70">Horario</h3>
                   <p className="text-primary-foreground">
-                    Lun – Vie: 9:00am – 2:00pm / 4:00pm – 7:00pm<br />
-                    Sáb: 10:00am – 1:00pm
+                    {siteConfig.hours}
                   </p>
                 </div>
               </motion.div>
@@ -424,11 +419,11 @@ const Contact = () => {
                 Nuestro equipo está disponible en horario de oficina.
               </p>
               <a 
-                href="tel:+526677522429" 
+                href={`tel:+52${siteConfig.phone}`} 
                 className="inline-flex items-center gap-2 text-accent font-semibold hover:underline"
               >
                 <Phone className="h-4 w-4" />
-                667 752 2429
+                {siteConfig.phoneFormatted}
               </a>
             </div>
 
@@ -443,7 +438,7 @@ const Contact = () => {
                 <div className="text-center p-6">
                   <MapPin className="h-8 w-8 text-accent mx-auto mb-2" />
                   <p className="text-primary-foreground/80 text-sm">
-                    Culiacán, Sinaloa, México
+                    {siteConfig.cityState}
                   </p>
                   <a 
                     href="https://maps.google.com/?q=Calle+Rio+Culiacan+113+Poniente+Culiacan+Sinaloa+Mexico" 

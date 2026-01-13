@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { Calendar, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { siteConfig } from "@/config/siteConfig";
+
 const FinalCTA = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
@@ -13,8 +15,7 @@ const FinalCTA = () => {
   });
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(t.common.whatsappMessage);
-    window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
+    window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
 
   return (
