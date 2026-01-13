@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import MobileTopBar from "@/components/MobileTopBar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
 import Metrics from "@/components/Metrics";
@@ -40,6 +41,7 @@ const Index = () => {
         canonical="https://soportelegal.com.mx/"
         schema={[organizationSchema, legalServiceSchema, websiteSchema]}
       />
+      <MobileTopBar />
       <Navbar />
       <main id="main-content">
         <Hero {...content.heroContent} />

@@ -55,7 +55,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border md:top-0 top-[40px]">
       {/* Skip link for keyboard users */}
       <a href="#main-content" className="skip-link">
         {t.common.skipToContent}
