@@ -369,5 +369,27 @@
   "toast": {
     "messageSent": "¡Mensaje enviado!",
     "messageDescription": "Nos pondremos en contacto contigo en menos de 24 horas."
+  },
+  "seo": {
+    "home": {
+      "title": "Abogados en Culiacán | Rodriguez Soporte Legal",
+      "description": "Despacho jurídico en Culiacán con +22 años de experiencia. Derecho mercantil, corporativo, civil y familiar. Respuesta en 24 horas."
+    },
+    "practiceAreas": {
+      "title": "Áreas de Práctica | Rodriguez Soporte Legal",
+      "description": "Conoce nuestras especialidades: derecho mercantil, corporativo, civil, inmobiliario y familiar. Soluciones legales en Culiacán."
+    },
+    "booking": {
+      "title": "Agendar Cita | Rodriguez Soporte Legal",
+      "description": "Reserva tu consulta legal en Culiacán. Selecciona fecha y hora, te contactamos en 24 horas. Consulta inicial sin costo."
+    },
+    "privacy": {
+      "title": "Aviso de Privacidad | Rodriguez Soporte Legal",
+      "description": "Consulta nuestro aviso de privacidad. Protegemos tus datos personales conforme a la LFPDPPP. Despacho jurídico en Culiacán."
+    },
+    "terms": {
+      "title": "Términos y Condiciones | Rodriguez Soporte Legal",
+      "description": "Términos y condiciones de uso de nuestros servicios legales. Despacho jurídico en Culiacán, Sinaloa."
+    }
   }
 }

@@ -17,8 +17,8 @@ const Privacy = () => {
     <div className="min-h-screen bg-background">
       <SchemaMarkup 
         type="webpage" 
-        pageTitle={t.legal.privacy.title + ' | Rodriguez Soporte Legal'} 
-        pageDescription={locale === 'es' ? 'Aviso de privacidad de Rodriguez Soporte Legal' : 'Privacy policy of Rodriguez Soporte Legal'} 
+        pageTitle={t.seo.privacy.title} 
+        pageDescription={t.seo.privacy.description} 
       />
       <Navbar />
       

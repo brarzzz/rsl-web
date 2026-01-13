@@ -157,8 +157,8 @@ Please confirm my appointment. Thank you!`;
     <div className="min-h-screen bg-background">
       <SchemaMarkup 
         type="webpage" 
-        pageTitle={locale === 'es' ? 'Agendar Cita | Rodriguez Soporte Legal' : 'Book Appointment | Rodriguez Soporte Legal'} 
-        pageDescription={t.booking.subtitle} 
+        pageTitle={t.seo.booking.title} 
+        pageDescription={t.seo.booking.description} 
       />
       <Navbar />
       

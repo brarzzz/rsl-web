@@ -20,7 +20,7 @@ import * as homeEn from "@/content/home.en";
 import { teamContent } from "@/content/team.es";
 
 const Index = () => {
-  const { locale } = useLanguage();
+  const { locale, t } = useLanguage();
   
   // Select content based on language
   const content = locale === "en" ? homeEn : homeEs;
@@ -28,8 +28,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Abogados en Culiacán | Rodriguez Soporte Legal"
-        description="Despacho jurídico en Culiacán con +22 años de experiencia. Derecho mercantil, corporativo, civil y familiar. Respuesta en 24 horas."
+        title={t.seo.home.title}
+        description={t.seo.home.description}
         keywords={[
           'abogados en Culiacán Sinaloa',
           'despacho jurídico en Culiacán',
