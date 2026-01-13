@@ -43,7 +43,7 @@ const Hero = (props: Partial<HeroProps>) => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[40px] md:pt-0"
       aria-labelledby="hero-heading"
     >
       {/* Background Image */}

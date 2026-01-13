@@ -4,28 +4,28 @@ import { useTranslation } from '@/i18n/LanguageContext';
 import { siteConfig } from '@/config/siteConfig';
 
 export interface StickyMobileCTAProps {
+  /** Custom button text (defaults to siteConfig.ctas.secondary) */
   text?: string;
+  /** Custom WhatsApp href (defaults to siteConfig.whatsappLink()) */
   href?: string;
+  /** Show/hide the CTA (defaults to true) */
   show?: boolean;
+  /** Custom aria-label */
   ariaLabel?: string;
 }
 
-const StickyMobileCTA = (props: StickyMobileCTAProps) => {
+const StickyMobileCTA = ({
+  text = siteConfig.ctas.secondary,
+  href = siteConfig.whatsappLink(siteConfig.ctas.primary),
+  show = true,
+  ariaLabel,
+}: StickyMobileCTAProps) => {
   const { t } = useTranslation();
 
-  const {
-    text,
-    href,
-    show = true,
-    ariaLabel = t.aria?.sendWhatsappNewWindow || "Send WhatsApp message",
-  } = props;
+  const resolvedAriaLabel = ariaLabel || t.aria?.sendWhatsappNewWindow || "Send WhatsApp message";
 
   const handleClick = () => {
-    if (href) {
-      window.open(href, '_blank');
-    } else {
-      window.open(siteConfig.whatsappLink(t.common.whatsappMessage), '_blank');
-    }
+    window.open(href, '_blank', 'noopener,noreferrer');
   };
 
   if (!show) return null;
@@ -37,7 +37,7 @@ const StickyMobileCTA = (props: StickyMobileCTAProps) => {
       transition={{ delay: 1, type: 'spring', stiffness: 200 }}
       onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 md:hidden w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg flex items-center justify-center hover:bg-whatsapp-hover active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      aria-label={ariaLabel}
+      aria-label={resolvedAriaLabel}
     >
       <MessageCircle className="h-6 w-6" fill="currentColor" aria-hidden="true" />
       {text && <span className="sr-only">{text}</span>}
