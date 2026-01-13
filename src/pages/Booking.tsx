@@ -12,7 +12,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
-import SchemaMarkup from '@/components/SchemaMarkup';
+import SEOHead from '@/components/SEOHead';
 import { useTranslation } from '@/i18n/LanguageContext';
 import { cn } from '@/lib/utils';
 
@@ -155,10 +155,10 @@ Please confirm my appointment. Thank you!`;
 
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup 
-        type="webpage" 
-        pageTitle={t.seo.booking.title} 
-        pageDescription={t.seo.booking.description} 
+      <SEOHead 
+        title={t.seo.booking.title} 
+        description={t.seo.booking.description}
+        canonical="https://soportelegal.com.mx/agendar"
       />
       <Navbar />
       
