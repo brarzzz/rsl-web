@@ -27,7 +27,7 @@ const buttonVariants = cva(
         heroOutline: "border-2 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 text-base font-semibold",
         
         // WhatsApp CTA
-        whatsapp: "bg-[#25D366] text-white hover:bg-[#20bd5a] shadow-md hover:shadow-lg",
+        whatsapp: "bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover shadow-md hover:shadow-lg",
         
         // Success variant
         success: "bg-success text-success-foreground hover:bg-success/90 shadow-sm",
