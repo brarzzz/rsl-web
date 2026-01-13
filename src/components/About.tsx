@@ -1,6 +1,6 @@
+import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { Shield, Target, Zap, Heart, Eye, Lightbulb, Users, Laptop } from "lucide-react";
 const values = [{
   icon: Shield,
@@ -36,7 +36,7 @@ const differentiators = [{
   label: "Herramientas digitales",
   description: "Eficiencia con tecnología."
 }];
-const About = () => {
+const About = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -213,5 +213,8 @@ const About = () => {
         </motion.div>
       </div>
     </section>;
-};
+});
+
+About.displayName = 'About';
+
 export default About;
