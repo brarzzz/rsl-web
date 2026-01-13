@@ -179,7 +179,7 @@ const PracticeAreaTemplate = ({
 
                   <div className="space-y-3">
                     <Button variant="heroGold" size="lg" className="w-full" asChild>
-                      <a href={cta.href}>
+                      <a href={cta.href} className="text-neutral-50">
                         {cta.text}
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
                       </a>
