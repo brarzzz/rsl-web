@@ -14,7 +14,7 @@ export const heroContent: Partial<HeroProps> = {
   kicker: "Soporte Legal para Empresas",
   title: "Prevención y defensa civil para",
   titleAccent: "PyMEs y emprendedores",
-  subtitle: "Contratos claros, cumplimiento al día y respaldo ante conflictos.\nTiempo de Respuesta 24 h",
+  subtitle: "Contratos claros, cumplimiento al día y respaldo ante conflictos.",
   bullets: [
     "Consulta inicial sin costo",
     "+22 años de experiencia",

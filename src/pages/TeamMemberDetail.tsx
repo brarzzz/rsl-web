@@ -91,8 +91,10 @@ const TeamMemberDetail = () => {
                 <div className="relative">
                   <img
                     src={member.photoSrc}
-                    alt={member.name}
+                    alt={`Foto de ${member.name}, ${member.role} en Rodriguez Soporte Legal`}
                     className="w-full max-w-sm mx-auto aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

@@ -257,12 +257,25 @@
 
   /* Focus styles for accessibility - WCAG AA compliant */
   :focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    @apply outline-2 outline-offset-2 outline-accent;
+    outline-style: solid;
+  }
+
+  /* Enhanced focus for links - high contrast */
+  a:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent rounded-sm;
+    outline-style: solid;
+  }
+
+  /* Enhanced focus for buttons - high contrast gold ring */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    @apply ring-2 ring-accent ring-offset-2 ring-offset-background outline-none;
   }
 
   /* Skip link for keyboard navigation */
   .skip-link {
-    @apply absolute -top-full left-4 z-[9999] bg-primary text-primary-foreground px-4 py-2 rounded-b-md font-medium;
+    @apply absolute -top-full left-4 z-[9999] bg-accent text-accent-foreground px-4 py-2 rounded-b-md font-semibold shadow-lg;
     transition: top var(--transition-fast);
   }
 
