@@ -312,7 +312,15 @@
     "backToAreas": "Back to Areas",
     "backToTeam": "Back to team",
     "relatedServices": "Related services",
-    "consultation": "Request consultation"
+    "consultation": "Request consultation",
+    "howWeWork": "How we work",
+    "problemsWeSolve": "Problems we solve",
+    "faq": "Frequently asked questions",
+    "needAdvice": "Need advice?",
+    "ctaDescription": "Schedule a consultation to review your specific case.",
+    "stepDiagnosis": "Diagnosis",
+    "stepDocumentation": "Documentation",
+    "stepFollowUp": "Follow-up"
   },
   "teamProfile": {
     "aboutMe": "About me",
