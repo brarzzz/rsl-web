@@ -6,7 +6,8 @@
     "about": "Nosotros",
     "team": "Equipo",
     "contact": "Contacto",
-    "booking": "Agendar Cita"
+    "booking": "Agendar Cita",
+    "links": "Enlaces"
   },
   "hero": {
     "badge": "+22 años protegiendo negocios en Culiacán",
@@ -204,7 +205,10 @@
       "whatsapp": "WhatsApp",
       "sending": "Enviando...",
       "required": "*",
-      "consent": "He leído y acepto el Aviso de Privacidad y los Términos y Condiciones. Autorizo el uso de mis datos para ser contactado.",
+      "consent": "He leído y acepto el",
+      "consentAnd": "y los",
+      "consentAuth": "Autorizo el uso de mis datos para ser contactado.",
+      "sendAnother": "Enviar otro mensaje",
       "subjectOptions": {
         "consulting": "Consultoría empresarial",
         "commercial": "Derecho mercantil/corporativo",
@@ -255,7 +259,22 @@
     "rights": "Todos los derechos reservados.",
     "privacy": "Aviso de Privacidad",
     "terms": "Términos y Condiciones",
-    "disclaimer": "Cada caso requiere análisis; agenda una consulta para evaluación."
+    "disclaimer": "Cada caso requiere análisis; agenda una consulta para evaluación.",
+    "copyright": "Rodriguez, Integración de Servicios Jurídicos S.A. de C.V.",
+    "brandName": "Rodriguez Soporte Legal",
+    "visitInstagram": "Visitar nuestro Instagram",
+    "visitLinkedin": "Visitar nuestro LinkedIn",
+    "contactWhatsapp": "Contactar por WhatsApp",
+    "opensNewWindow": "Abre en nueva ventana",
+    "footerLabel": "Pie de página",
+    "quickLinks": "Enlaces rápidos",
+    "services": {
+      "prevention": "Prevención y Consultoría",
+      "commercial": "Derecho Mercantil",
+      "corporate": "Derecho Corporativo",
+      "civil": "Derecho Civil e Inmobiliario",
+      "family": "Derecho Familiar"
+    }
   },
   "booking": {
     "title": "Agenda tu cita",
@@ -319,7 +338,13 @@
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",
     "back": "Volver",
-    "more": "Ver más"
+    "more": "Ver más",
+    "required": "requerido",
+    "skipToContent": "Saltar al contenido principal",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación",
+    "mobileMenu": "Menú móvil",
+    "mainNavigation": "Navegación principal"
   },
   "microcopy": {
     "responseBadge": "Tiempo de Respuesta 24 h",
@@ -335,5 +360,14 @@
     "es": "Español",
     "en": "English",
     "switch": "Cambiar idioma"
+  },
+  "aria": {
+    "whatsappNewWindow": "Abre WhatsApp en nueva ventana",
+    "sendWhatsappNewWindow": "Enviar mensaje por WhatsApp - Abre en nueva ventana",
+    "homePage": "Inicio"
+  },
+  "toast": {
+    "messageSent": "¡Mensaje enviado!",
+    "messageDescription": "Nos pondremos en contacto contigo en menos de 24 horas."
   }
 }
