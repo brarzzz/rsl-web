@@ -60,25 +60,25 @@ const Navbar = () => {
       <a href="#main-content" className="skip-link">
         Saltar al contenido principal
       </a>
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-center gap-6" aria-label="Navegación principal">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2" aria-label="Rodriguez Soporte Legal - Inicio">
+      <nav className="container mx-auto px-4 h-16 grid grid-cols-3 items-center" aria-label="Navegación principal">
+        {/* Logo - Izquierda */}
+        <Link to="/" className="flex items-center gap-2 justify-self-start" aria-label="Rodriguez Soporte Legal - Inicio">
           <span className="font-serif text-xl font-bold text-primary" aria-hidden="true">RSL</span>
           <span className="hidden sm:inline text-sm text-muted-foreground">Rodriguez Soporte Legal</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Desktop Navigation - Centro */}
+        <div className="hidden lg:flex items-center justify-center gap-6">
           {navLinks.map((link) => renderNavLink(link))}
         </div>
 
-        {/* Language Switcher */}
-        <div className="hidden lg:flex items-center">
+        {/* Language Switcher - Derecha */}
+        <div className="hidden lg:flex items-center justify-self-end">
           <LanguageSwitcher />
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-2 ml-auto">
+        <div className="lg:hidden flex items-center gap-2 justify-self-end col-start-3">
           <LanguageSwitcher />
           <button
             onClick={() => setIsOpen(!isOpen)}
