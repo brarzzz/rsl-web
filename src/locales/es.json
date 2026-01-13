@@ -376,7 +376,9 @@
   },
   "toast": {
     "messageSent": "¡Mensaje enviado!",
-    "messageDescription": "Nos pondremos en contacto contigo en menos de 24 horas."
+    "messageDescription": "Nos pondremos en contacto contigo en menos de 24 horas.",
+    "error": "Error",
+    "errorDescription": "Hubo un error al enviar el mensaje. Intenta de nuevo."
   },
   "seo": {
     "home": {

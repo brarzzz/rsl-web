@@ -3,8 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/i18n/LanguageContext";
+import { useTranslation, useLanguage } from "@/i18n/LanguageContext";
 import { siteConfig } from "@/config/siteConfig";
+import { trackEvent, getCurrentPage } from "@/lib/analytics";
 
 export interface FinalCTAProps {
   title?: string;
@@ -16,6 +17,7 @@ export interface FinalCTAProps {
 
 const FinalCTA = (props: FinalCTAProps) => {
   const { t } = useTranslation();
+  const { locale } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -30,7 +32,22 @@ const FinalCTA = (props: FinalCTAProps) => {
     ctaWhatsappText = t.finalCta?.ctaWhatsapp || siteConfig.ctas.secondary,
   } = props;
 
+  const handlePrimaryClick = () => {
+    trackEvent('cta_primary_click', {
+      label: ctaBookingText,
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'final_cta',
+    });
+  };
+
   const handleWhatsApp = () => {
+    trackEvent('cta_whatsapp_click', {
+      label: ctaWhatsappText,
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'final_cta',
+    });
     window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
 
@@ -50,7 +67,7 @@ const FinalCTA = (props: FinalCTAProps) => {
             {subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroGold" size="xl" asChild>
+            <Button variant="heroGold" size="xl" asChild onClick={handlePrimaryClick}>
               <a href={ctaBookingHref}>
                 <Calendar className="h-5 w-5" aria-hidden="true" />
                 {ctaBookingText}
