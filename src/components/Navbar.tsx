@@ -4,6 +4,7 @@ import { Menu, X, Phone, MessageCircle, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { siteConfig } from "@/config/siteConfig";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navbar = () => {
@@ -20,8 +21,7 @@ const Navbar = () => {
   ];
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(t.common.whatsappMessage);
-    window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
+    window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
 
   const renderNavLink = (link: typeof navLinks[0], isMobile = false) => {

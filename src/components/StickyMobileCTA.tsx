@@ -1,13 +1,13 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/i18n/LanguageContext';
+import { siteConfig } from '@/config/siteConfig';
 
 const StickyMobileCTA = () => {
   const { t } = useTranslation();
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(t.common.whatsappMessage);
-    window.open(`https://wa.me/526671636472?text=${message}`, '_blank');
+    window.open(siteConfig.whatsappLink(t.common.whatsappMessage), '_blank');
   };
 
   return (

@@ -1,14 +1,14 @@
 import { Instagram, Linkedin, Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { siteConfig } from "@/config/siteConfig";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(t.common.whatsappMessage);
-    window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
+    window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
 
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://instagram.com/rodriguez.soportelegal"
+                href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -34,7 +34,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
               <a
-                href="https://www.linkedin.com/in/rodriguez-soporte-legal-4a16493a5/"
+                href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -58,29 +58,29 @@ const Footer = () => {
             <ul className="space-y-3" role="list">
               <li>
                 <a
-                  href="tel:+526677522429"
+                  href={`tel:+52${siteConfig.phone}`}
                   className="flex items-start gap-2 text-background/70 hover:text-accent transition-colors text-sm"
                 >
                   <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span>(667) 752-2429</span>
+                  <span>{siteConfig.phoneFormatted}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:jorgeluis@soportelegal.com.mx"
+                  href={`mailto:${siteConfig.email}`}
                   className="flex items-start gap-2 text-background/70 hover:text-accent transition-colors text-sm"
                 >
                   <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span>jorgeluis@soportelegal.com.mx</span>
+                  <span>{siteConfig.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span>Calle Rio Culiacán 113 Pte, Col. Guadalupe, Culiacán, Sinaloa</span>
+                <span>{siteConfig.addressShort}, {siteConfig.cityState}</span>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
                 <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span>Lun–Vie 9:00–14:00 / 16:00–19:00<br />Sáb 10:00–13:00</span>
+                <span style={{ whiteSpace: 'pre-line' }}>{siteConfig.hoursShort}</span>
               </li>
             </ul>
           </div>
