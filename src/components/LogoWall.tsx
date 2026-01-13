@@ -1,6 +1,6 @@
-import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { Building2, Briefcase, Store, Factory, Landmark, Building, LucideIcon } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -28,7 +28,7 @@ const defaultLogos: LogoItem[] = [
   { icon: Building, alt: "Grupo F" },
 ];
 
-const LogoWall = memo((props: LogoWallProps) => {
+const LogoWall = (props: LogoWallProps) => {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -87,9 +87,6 @@ const LogoWall = memo((props: LogoWallProps) => {
                     alt={logo.alt} 
                     className="max-h-12 max-w-full object-contain"
                     loading="lazy"
-                    decoding="async"
-                    width="120"
-                    height="48"
                   />
                 ) : IconComponent ? (
                   <div className="flex flex-col items-center gap-1 text-muted-foreground group-hover:text-accent transition-colors duration-300">
@@ -127,8 +124,6 @@ const LogoWall = memo((props: LogoWallProps) => {
       </div>
     </section>
   );
-});
-
-LogoWall.displayName = 'LogoWall';
+};
 
 export default LogoWall;

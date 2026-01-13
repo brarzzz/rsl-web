@@ -87,16 +87,14 @@ const TeamMemberDetail = () => {
               className="lg:col-span-1"
             >
               <div className="sticky top-24 space-y-6">
-                {/* Photo with aspect ratio container for CLS prevention */}
-                <div className="relative aspect-[4/5] max-w-sm mx-auto">
+                {/* Photo */}
+                <div className="relative">
                   <img
                     src={member.photoSrc}
                     alt={`Foto de ${member.name}, ${member.role} en Rodriguez Soporte Legal`}
-                    className="w-full h-full object-cover object-top rounded-2xl shadow-lg"
+                    className="w-full max-w-sm mx-auto aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
                     loading="lazy"
                     decoding="async"
-                    width="320"
-                    height="400"
                   />
                 </div>
 

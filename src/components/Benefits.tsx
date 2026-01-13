@@ -1,6 +1,6 @@
-import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { Shield, MessageSquare, Clock, FileCheck, LucideIcon } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -17,7 +17,7 @@ export interface BenefitsProps {
   items?: BenefitItem[];
 }
 
-const Benefits = memo((props: BenefitsProps) => {
+const Benefits = (props: BenefitsProps) => {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -106,8 +106,6 @@ const Benefits = memo((props: BenefitsProps) => {
       </div>
     </section>
   );
-});
-
-Benefits.displayName = 'Benefits';
+};
 
 export default Benefits;

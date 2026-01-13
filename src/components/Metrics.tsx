@@ -1,6 +1,6 @@
-import { memo, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const metrics = [
   { value: "+22", label: "Años de experiencia" },
@@ -9,7 +9,7 @@ const metrics = [
   { value: "96%", label: "Casos exitosos" },
 ];
 
-const Metrics = memo(() => {
+const Metrics = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -35,8 +35,6 @@ const Metrics = memo(() => {
       </div>
     </section>
   );
-});
-
-Metrics.displayName = 'Metrics';
+};
 
 export default Metrics;

@@ -45,9 +45,8 @@ const Hero = (props: Partial<HeroProps>) => {
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-labelledby="hero-heading"
-      style={{ aspectRatio: '16/9', minHeight: '100vh' }}
     >
-      {/* Background Image - LCP critical, preloaded */}
+      {/* Background Image */}
       <img
         src={backgroundImage}
         alt=""
@@ -56,8 +55,6 @@ const Hero = (props: Partial<HeroProps>) => {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        width="1920"
-        height="1080"
       />
       
       {/* Overlay */}
