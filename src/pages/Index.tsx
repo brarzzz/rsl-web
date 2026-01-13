@@ -12,8 +12,19 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEOHead, { organizationSchema, legalServiceSchema, websiteSchema } from "@/components/SEOHead";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+// Content imports
+import * as homeEs from "@/content/home.es";
+import * as homeEn from "@/content/home.en";
+import { teamContent } from "@/content/team.es";
 
 const Index = () => {
+  const { locale } = useLanguage();
+  
+  // Select content based on language
+  const content = locale === "en" ? homeEn : homeEs;
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -30,16 +41,16 @@ const Index = () => {
       />
       <Navbar />
       <main id="main-content">
-        <Hero />
-        <Benefits />
+        <Hero {...content.heroContent} />
+        <Benefits {...content.benefitsContent} />
         <Metrics />
-        <Services />
-        <LogoWall />
+        <Services {...content.servicesContent} />
+        <LogoWall {...content.logoWallContent} />
         <About />
-        <Team />
-        <Testimonials />
-        <FinalCTA />
-        <Contact />
+        <Team {...teamContent} />
+        <Testimonials {...content.testimonialsContent} />
+        <FinalCTA {...content.finalCtaContent} />
+        <Contact {...content.contactContent} />
       </main>
       <Footer />
       <StickyMobileCTA />
