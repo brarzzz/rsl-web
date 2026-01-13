@@ -134,7 +134,15 @@ const Testimonials = (props: TestimonialsProps) => {
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center overflow-hidden">
                     {testimonial.photoSrc ? (
-                      <img src={testimonial.photoSrc} alt="" className="w-full h-full object-cover" />
+                      <img 
+                        src={testimonial.photoSrc} 
+                        alt="" 
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width="40"
+                        height="40"
+                      />
                     ) : (
                       <User className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
                     )}
