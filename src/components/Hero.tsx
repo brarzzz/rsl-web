@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Phone, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/i18n/LanguageContext";
+import { useTranslation, useLanguage } from "@/i18n/LanguageContext";
 import { siteConfig } from "@/config/siteConfig";
+import { trackEvent, getCurrentPage } from "@/lib/analytics";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export interface HeroProps {
@@ -21,6 +22,7 @@ export interface HeroProps {
 
 const Hero = (props: Partial<HeroProps>) => {
   const { t } = useTranslation();
+  const { locale } = useLanguage();
 
   // Default values from translations
   const {
@@ -37,7 +39,22 @@ const Hero = (props: Partial<HeroProps>) => {
     backgroundImage = heroBg,
   } = props;
 
+  const handlePrimaryClick = () => {
+    trackEvent('cta_primary_click', {
+      label: ctaPrimaryText,
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'hero',
+    });
+  };
+
   const handleWhatsApp = () => {
+    trackEvent('cta_whatsapp_click', {
+      label: ctaSecondaryText || 'WhatsApp',
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'hero',
+    });
     window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
 
@@ -118,7 +135,7 @@ const Hero = (props: Partial<HeroProps>) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="heroGold" size="xl" asChild>
+            <Button variant="heroGold" size="xl" asChild onClick={handlePrimaryClick}>
               <a href={ctaPrimaryHref} aria-label={ctaPrimaryText}>
                 {ctaPrimaryText}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />

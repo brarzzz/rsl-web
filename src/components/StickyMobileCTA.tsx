@@ -1,7 +1,8 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTranslation } from '@/i18n/LanguageContext';
+import { useTranslation, useLanguage } from '@/i18n/LanguageContext';
 import { siteConfig } from '@/config/siteConfig';
+import { trackEvent, getCurrentPage } from '@/lib/analytics';
 
 export interface StickyMobileCTAProps {
   /** Custom button text (defaults to siteConfig.ctas.secondary) */
@@ -21,10 +22,17 @@ const StickyMobileCTA = ({
   ariaLabel,
 }: StickyMobileCTAProps) => {
   const { t } = useTranslation();
+  const { locale } = useLanguage();
 
   const resolvedAriaLabel = ariaLabel || t.aria?.sendWhatsappNewWindow || "Send WhatsApp message";
 
   const handleClick = () => {
+    trackEvent('cta_whatsapp_click', {
+      label: 'Sticky Mobile CTA',
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'sticky_mobile',
+    });
     window.open(href, '_blank', 'noopener,noreferrer');
   };
 

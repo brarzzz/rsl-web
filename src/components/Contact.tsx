@@ -11,7 +11,8 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { siteConfig } from "@/config/siteConfig";
 import { z } from "zod";
-import { useTranslation } from "@/i18n/LanguageContext";
+import { useTranslation, useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent, getCurrentPage } from "@/lib/analytics";
 
 export interface ContactProps {
   badge?: string;
@@ -53,6 +54,7 @@ const Contact = (props: ContactProps) => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const { t } = useTranslation();
+  const { locale } = useLanguage();
 
   const {
     badge = t.contact.badge,
@@ -112,22 +114,61 @@ const Contact = (props: ContactProps) => {
       });
       setErrors(fieldErrors);
       setIsSubmitting(false);
+      
+      // Track form validation error
+      trackEvent('form_submit_error', {
+        label: 'contact_form',
+        page: getCurrentPage(),
+        lang: locale,
+        error_type: 'validation',
+        error_fields: Object.keys(fieldErrors).join(','),
+      });
       return;
     }
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSuccess(true);
-    toast({
-      title: t.toast.messageSent,
-      description: t.toast.messageDescription,
-    });
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setIsSuccess(true);
+      toast({
+        title: t.toast.messageSent,
+        description: t.toast.messageDescription,
+      });
+      
+      // Track successful form submission
+      trackEvent('form_submit_success', {
+        label: 'contact_form',
+        page: getCurrentPage(),
+        lang: locale,
+        subject: formData.subject,
+      });
+    } catch (error) {
+      // Track form submission error
+      trackEvent('form_submit_error', {
+        label: 'contact_form',
+        page: getCurrentPage(),
+        lang: locale,
+        error_type: 'submission',
+      });
+      
+      toast({
+        title: (t.toast as { error?: string }).error || 'Error',
+        description: (t.toast as { errorDescription?: string }).errorDescription || 'Hubo un error al enviar el mensaje.',
+        variant: 'destructive',
+      });
+    }
     
     setIsSubmitting(false);
   };
 
   const handleWhatsApp = () => {
+    trackEvent('cta_whatsapp_click', {
+      label: 'Contact Form WhatsApp',
+      page: getCurrentPage(),
+      lang: locale,
+      section: 'contact',
+    });
     const sanitizedName = formData.name.trim().slice(0, 50);
     window.open(siteConfig.whatsappLinkWithName(siteConfig.ctas.primary.toLowerCase(), sanitizedName || undefined), "_blank");
   };
