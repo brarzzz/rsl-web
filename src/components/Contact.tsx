@@ -198,7 +198,7 @@ const Contact = (props: ContactProps) => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 sm:p-8 shadow-xl" noValidate aria-label="Formulario de contacto">
+              <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 sm:p-8 shadow-xl" noValidate aria-label={t.contact.badge}>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <Label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
@@ -231,7 +231,7 @@ const Contact = (props: ContactProps) => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="tu@email.com"
+                      placeholder={t.contact.form.emailPlaceholder}
                       maxLength={255}
                       required
                       aria-required="true"
@@ -246,8 +246,8 @@ const Contact = (props: ContactProps) => {
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <Label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
-                      Teléfono / WhatsApp <span aria-hidden="true">*</span>
-                      <span className="sr-only">(requerido)</span>
+                      {t.contact.form.phone} <span aria-hidden="true">*</span>
+                      <span className="sr-only">({t.common.required})</span>
                     </Label>
                     <Input
                       id="phone"
@@ -257,7 +257,7 @@ const Contact = (props: ContactProps) => {
                       autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="667 123 4567"
+                      placeholder={t.contact.form.phonePlaceholder}
                       maxLength={20}
                       required
                       aria-required="true"
@@ -269,8 +269,8 @@ const Contact = (props: ContactProps) => {
                   </div>
                   <div>
                     <Label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1.5">
-                      Asunto <span aria-hidden="true">*</span>
-                      <span className="sr-only">(requerido)</span>
+                      {t.contact.form.subject} <span aria-hidden="true">*</span>
+                      <span className="sr-only">({t.common.required})</span>
                     </Label>
                     <select
                       id="subject"
@@ -283,8 +283,8 @@ const Contact = (props: ContactProps) => {
                       aria-describedby={errors.subject ? "subject-error" : undefined}
                       className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.subject ? "border-destructive" : ""}`}
                     >
-                      <option value="">Selecciona un asunto</option>
-                      {subjectOptions.map((option) => (
+                      <option value="">{t.contact.form.subjectPlaceholder}</option>
+                      {actualSubjectOptions.map((option) => (
                         <option key={option} value={option}>{option}</option>
                       ))}
                     </select>
@@ -294,15 +294,15 @@ const Contact = (props: ContactProps) => {
                 
                 <div className="mb-4">
                   <Label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
-                    ¿Cómo podemos ayudarte? <span aria-hidden="true">*</span>
-                    <span className="sr-only">(requerido)</span>
+                    {t.contact.form.message} <span aria-hidden="true">*</span>
+                    <span className="sr-only">({t.common.required})</span>
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Cuéntanos brevemente tu situación..."
+                    placeholder={t.contact.form.messagePlaceholder}
                     rows={4}
                     maxLength={1000}
                     required
@@ -329,15 +329,15 @@ const Contact = (props: ContactProps) => {
                     <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       {consentText || (
                         <>
-                          He leído y acepto el{" "}
+                          {t.contact.form.consent}{" "}
                           <a href={privacyUrl} target="_blank" className="text-accent underline hover:no-underline">
-                            Aviso de Privacidad
+                            {t.legal.privacyPolicy}
                           </a>{" "}
-                          y los{" "}
+                          {t.contact.form.consentAnd}{" "}
                           <a href={termsUrl} target="_blank" className="text-accent underline hover:no-underline">
-                            Términos y Condiciones
+                            {t.legal.termsConditions}
                           </a>
-                          . Autorizo el uso de mis datos para ser contactado.
+                          . {t.contact.form.consentAuth}
                         </>
                       )}
                     </Label>
@@ -348,14 +348,14 @@ const Contact = (props: ContactProps) => {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button type="submit" variant="gold" size="lg" className="flex-1" disabled={isSubmitting}>
                     <Send className="h-4 w-4" aria-hidden="true" />
-                    {isSubmitting ? "Enviando..." : submitLabel}
+                    {isSubmitting ? t.contact.form.sending : submitLabel}
                   </Button>
                   <Button 
                     type="button" 
                     variant="whatsapp" 
                     size="lg" 
                     onClick={handleWhatsApp}
-                    aria-label="Contactar por WhatsApp - Abre en nueva ventana"
+                    aria-label={t.aria.sendWhatsappNewWindow}
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden="true" />
                     {whatsappLabel}
@@ -390,7 +390,7 @@ const Contact = (props: ContactProps) => {
                   <Phone className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-primary-foreground/70">Teléfono</h3>
+                  <h3 className="text-sm font-medium text-primary-foreground/70">{t.contact.info.phone}</h3>
                   <a href={`tel:+52${siteConfig.phone}`} className="text-primary-foreground hover:text-accent transition-colors">
                     {siteConfig.phoneFormatted}
                   </a>
@@ -408,7 +408,7 @@ const Contact = (props: ContactProps) => {
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-primary-foreground/70">Email</h3>
+                  <h3 className="text-sm font-medium text-primary-foreground/70">{t.contact.info.email}</h3>
                   <a href={`mailto:${siteConfig.email}`} className="text-primary-foreground hover:text-accent transition-colors break-all">
                     {siteConfig.email}
                   </a>
@@ -426,7 +426,7 @@ const Contact = (props: ContactProps) => {
                   <MapPin className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-primary-foreground/70">Dirección</h3>
+                  <h3 className="text-sm font-medium text-primary-foreground/70">{t.contact.info.address}</h3>
                   <p className="text-primary-foreground">
                     {siteConfig.address}<br />
                     {siteConfig.cityState}
@@ -445,7 +445,7 @@ const Contact = (props: ContactProps) => {
                   <Clock className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-primary-foreground/70">Horario</h3>
+                  <h3 className="text-sm font-medium text-primary-foreground/70">{t.contact.info.hours}</h3>
                   <p className="text-primary-foreground">
                     {siteConfig.hours}
                   </p>
@@ -456,10 +456,10 @@ const Contact = (props: ContactProps) => {
             {/* Call CTA */}
             <div className="mt-8 p-6 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10">
               <h3 className="font-serif text-lg font-bold text-primary-foreground mb-2">
-                ¿Prefieres llamar?
+                {t.contact.callPreference.title}
               </h3>
               <p className="text-primary-foreground/80 text-sm mb-4">
-                Nuestro equipo está disponible en horario de oficina.
+                {t.contact.callPreference.description}
               </p>
               <a 
                 href={`tel:+52${siteConfig.phone}`} 
@@ -489,7 +489,7 @@ const Contact = (props: ContactProps) => {
                     rel="noopener noreferrer"
                     className="text-accent text-sm hover:underline mt-2 inline-block"
                   >
-                    Ver en Google Maps →
+                    {t.contact.map.viewOnMaps} →
                   </a>
                 </div>
               </div>
