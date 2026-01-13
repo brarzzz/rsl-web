@@ -6,21 +6,22 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useTranslation } from '@/i18n/LanguageContext';
 import { siteConfig } from '@/config/siteConfig';
-
 export interface PracticeAreaTemplateProps {
   icon: LucideIcon;
   title: string;
   summary: string;
   steps: [string, string, string];
   problems: string[];
-  faqs: { question: string; answer: string }[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
   star?: boolean;
   cta: {
     text: string;
     href: string;
   };
 }
-
 const PracticeAreaTemplate = ({
   icon: Icon,
   title,
@@ -29,44 +30,50 @@ const PracticeAreaTemplate = ({
   problems,
   faqs,
   star = false,
-  cta,
+  cta
 }: PracticeAreaTemplateProps) => {
-  const { t } = useTranslation();
+  const {
+    t
+  } = useTranslation();
   const stickyRef = useRef<HTMLDivElement>(null);
 
   // Cast practiceAreas to access new keys (type will be updated on next build)
   const pa = t.practiceAreas as Record<string, string>;
-
-  const processSteps = [
-    { icon: Search, title: pa.stepDiagnosis || 'Diagnóstico', desc: steps[0] },
-    { icon: FileCheck, title: pa.stepDocumentation || 'Documentación', desc: steps[1] },
-    { icon: Clock, title: pa.stepFollowUp || 'Seguimiento', desc: steps[2] },
-  ];
-
+  const processSteps = [{
+    icon: Search,
+    title: pa.stepDiagnosis || 'Diagnóstico',
+    desc: steps[0]
+  }, {
+    icon: FileCheck,
+    title: pa.stepDocumentation || 'Documentación',
+    desc: steps[1]
+  }, {
+    icon: Clock,
+    title: pa.stepFollowUp || 'Seguimiento',
+    desc: steps[2]
+  }];
   const handleWhatsApp = () => {
     window.open(siteConfig.whatsappLink(t.common.whatsappMessage), '_blank');
   };
-
-  return (
-    <>
+  return <>
       {/* Hero Section */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-6">
               <Icon className="h-8 w-8 text-accent" aria-hidden="true" />
             </div>
             
-            {star && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-medium bg-accent/20 text-accent border border-accent/30 rounded-full">
+            {star && <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-medium bg-accent/20 text-accent border border-accent/30 rounded-full">
                 <Star className="h-3 w-3" aria-hidden="true" />
                 {t.services?.featured || 'Servicio Estrella'}
-              </span>
-            )}
+              </span>}
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
               {title}
@@ -89,15 +96,16 @@ const PracticeAreaTemplate = ({
               </h2>
                 <div className="grid gap-6">
                   {processSteps.map((step, index) => {
-                    const StepIcon = step.icon;
-                    return (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="flex gap-4 p-4 bg-muted/50 rounded-lg border border-border"
-                      >
+                  const StepIcon = step.icon;
+                  return <motion.div key={index} initial={{
+                    opacity: 0,
+                    x: -20
+                  }} animate={{
+                    opacity: 1,
+                    x: 0
+                  }} transition={{
+                    delay: index * 0.1
+                  }} className="flex gap-4 p-4 bg-muted/50 rounded-lg border border-border">
                         <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                           <StepIcon className="h-5 w-5 text-primary" aria-hidden="true" />
                         </div>
@@ -107,9 +115,8 @@ const PracticeAreaTemplate = ({
                           </h3>
                           <p className="text-muted-foreground text-sm">{step.desc}</p>
                         </div>
-                      </motion.div>
-                    );
-                  })}
+                      </motion.div>;
+                })}
                 </div>
               </div>
 
@@ -119,18 +126,18 @@ const PracticeAreaTemplate = ({
                 {pa.problemsWeSolve || 'Problemas que resolvemos'}
               </h2>
                 <div className="grid sm:grid-cols-2 gap-3">
-                  {problems.map((problem, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="flex items-start gap-3 p-3 bg-background border border-border rounded-lg"
-                    >
+                  {problems.map((problem, index) => <motion.div key={index} initial={{
+                  opacity: 0,
+                  y: 10
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  delay: index * 0.05
+                }} className="flex items-start gap-3 p-3 bg-background border border-border rounded-lg">
                       <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true" />
                       <span className="text-sm text-foreground">{problem}</span>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
               </div>
 
@@ -140,20 +147,14 @@ const PracticeAreaTemplate = ({
                 {pa.faq || 'Preguntas frecuentes'}
               </h2>
                 <Accordion type="single" collapsible className="space-y-3">
-                  {faqs.map((faq, index) => (
-                    <AccordionItem
-                      key={index}
-                      value={`faq-${index}`}
-                      className="border border-border rounded-lg px-4 bg-background"
-                    >
+                  {faqs.map((faq, index) => <AccordionItem key={index} value={`faq-${index}`} className="border border-border rounded-lg px-4 bg-background">
                       <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
                         {faq.question}
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground pb-4">
                         {faq.answer}
                       </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                    </AccordionItem>)}
                 </Accordion>
               </div>
             </div>
@@ -162,12 +163,14 @@ const PracticeAreaTemplate = ({
             <div className="lg:col-span-1">
               <div ref={stickyRef} className="lg:sticky lg:top-24 space-y-6">
                 {/* CTA Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-primary text-primary-foreground rounded-2xl p-6 shadow-xl"
-                >
-                  <h3 className="font-serif text-xl font-bold mb-2">
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} className="bg-primary text-primary-foreground rounded-2xl p-6 shadow-xl">
+                  <h3 className="font-serif text-xl font-bold mb-2 text-neutral-50">
                     {pa.needAdvice || '¿Necesitas asesoría?'}
                   </h3>
                   <p className="text-primary-foreground/80 text-sm mb-6">
@@ -182,12 +185,7 @@ const PracticeAreaTemplate = ({
                       </a>
                     </Button>
 
-                    <Button
-                      variant="heroOutline"
-                      size="lg"
-                      className="w-full"
-                      onClick={handleWhatsApp}
-                    >
+                    <Button variant="heroOutline" size="lg" className="w-full" onClick={handleWhatsApp}>
                       <MessageSquare className="h-4 w-4" aria-hidden="true" />
                       {t.hero?.ctaSecondary || 'Enviar WhatsApp'}
                     </Button>
@@ -204,10 +202,7 @@ const PracticeAreaTemplate = ({
                 </motion.div>
 
                 {/* Back Link */}
-                <Link
-                  to="/areas-de-practica"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link to="/areas-de-practica" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                   <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" />
                   {t.practiceAreas?.backToAreas || 'Volver a Áreas'}
                 </Link>
@@ -216,8 +211,6 @@ const PracticeAreaTemplate = ({
           </div>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default PracticeAreaTemplate;
