@@ -324,7 +324,9 @@ const Contact = (props: ContactProps) => {
                       id="consent"
                       checked={formData.consent}
                       onCheckedChange={handleConsentChange}
-                      className={errors.consent ? "border-destructive" : ""}
+                      aria-invalid={!!errors.consent}
+                      aria-describedby={errors.consent ? "consent-error" : undefined}
+                      aria-required="true"
                     />
                     <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       {consentText || (
@@ -342,7 +344,7 @@ const Contact = (props: ContactProps) => {
                       )}
                     </Label>
                   </div>
-                  {errors.consent && <p className="text-xs text-destructive mt-1">{errors.consent}</p>}
+                  {errors.consent && <p id="consent-error" className="text-xs text-destructive mt-1" role="alert">{errors.consent}</p>}
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-3">

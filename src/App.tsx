@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import SkipLink from "@/components/SkipLink";
 import Index from "./pages/Index";
 import PracticeAreas from "./pages/PracticeAreas";
 import PracticeAreaDetail from "./pages/PracticeAreaDetail";
@@ -22,6 +23,7 @@ const App = () => (
     <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <SkipLink />
           <Toaster />
           <Sonner />
           <BrowserRouter>
