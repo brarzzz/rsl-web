@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-interface SEOHeadProps {
+export interface SEOHeadProps {
   title: string;
   description: string;
   keywords?: string[];
@@ -44,6 +45,8 @@ const SEOHead = ({
   noindex = false,
   schema,
 }: SEOHeadProps) => {
+  const { locale } = useLanguage();
+  
   // Ensure title is ≤60 chars
   const formattedTitle = title.length > 60 
     ? title.substring(0, 57) + '...' 
@@ -57,16 +60,29 @@ const SEOHead = ({
   // Merge base keywords with page-specific keywords
   const allKeywords = [...new Set([...keywords, ...BASE_KEYWORDS.slice(0, 10)])];
 
-  const canonicalUrl = canonical || (typeof window !== 'undefined' ? window.location.href : BASE_URL);
+  // Clean canonical URL (remove query params for SEO)
+  const cleanCanonical = canonical || `${BASE_URL}${typeof window !== 'undefined' ? window.location.pathname : '/'}`;
+  
+  // OG locale format
+  const ogLocale = locale === 'en' ? 'en_US' : 'es_MX';
+  const alternateLocale = locale === 'en' ? 'es_MX' : 'en_US';
 
   return (
     <Helmet>
+      {/* HTML Lang Attribute */}
+      <html lang={locale} />
+      
       {/* Basic Meta Tags */}
       <title>{formattedTitle}</title>
       <meta name="description" content={formattedDescription} />
       <meta name="keywords" content={allKeywords.join(', ')} />
       <meta name="author" content={BRAND_NAME} />
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={cleanCanonical} />
+      
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="es" href={`${cleanCanonical}?lang=es`} />
+      <link rel="alternate" hrefLang="en" href={`${cleanCanonical}?lang=en`} />
+      <link rel="alternate" hrefLang="x-default" href={cleanCanonical} />
       
       {/* Robots */}
       {noindex ? (
@@ -79,12 +95,13 @@ const SEOHead = ({
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={formattedDescription} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={cleanCanonical} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={BRAND_NAME} />
-      <meta property="og:locale" content="es_MX" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={alternateLocale} />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -108,6 +125,8 @@ const SEOHead = ({
   );
 };
 
+// Export constants for reuse
+export { BASE_URL, BRAND_NAME };
 // Pre-configured schemas
 export const organizationSchema = {
   '@context': 'https://schema.org',

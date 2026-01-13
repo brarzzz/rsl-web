@@ -83,8 +83,8 @@ const PracticeAreas = () => {
     <div className="min-h-screen bg-background">
       <SchemaMarkup 
         type="webpage" 
-        pageTitle={locale === 'es' ? 'Áreas de Práctica | Rodriguez Soporte Legal' : 'Practice Areas | Rodriguez Soporte Legal'} 
-        pageDescription={t.practiceAreas.subtitle} 
+        pageTitle={t.seo.practiceAreas.title} 
+        pageDescription={t.seo.practiceAreas.description} 
       />
       <Navbar />
       

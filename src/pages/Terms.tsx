@@ -17,8 +17,8 @@ const Terms = () => {
     <div className="min-h-screen bg-background">
       <SchemaMarkup 
         type="webpage" 
-        pageTitle={t.legal.terms.title + ' | Rodriguez Soporte Legal'} 
-        pageDescription={locale === 'es' ? 'Términos y condiciones de Rodriguez Soporte Legal' : 'Terms and conditions of Rodriguez Soporte Legal'} 
+        pageTitle={t.seo.terms.title} 
+        pageDescription={t.seo.terms.description} 
       />
       <Navbar />
       

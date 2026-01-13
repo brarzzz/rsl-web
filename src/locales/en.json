@@ -369,5 +369,27 @@
   "toast": {
     "messageSent": "Message sent!",
     "messageDescription": "We will contact you within 24 hours."
+  },
+  "seo": {
+    "home": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "practiceAreas": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "booking": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "privacy": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    },
+    "terms": {
+      "title": "[Pending translation]",
+      "description": "[Pending translation]"
+    }
   }
 }
