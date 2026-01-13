@@ -12,13 +12,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground py-12" role="contentinfo" aria-label="Pie de página">
+    <footer className="bg-foreground py-12" role="contentinfo" aria-label={t.footer.footerLabel}>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-serif text-2xl font-bold text-background mb-2">
-              Rodriguez Soporte Legal
+              {t.footer.brandName}
             </h3>
             <p className="text-background/70 mb-4 text-sm">
               {t.hero.title} {t.hero.titleAccent}
@@ -29,7 +29,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Visitar nuestro Instagram - Abre en nueva ventana"
+                aria-label={`${t.footer.visitInstagram} - ${t.footer.opensNewWindow}`}
               >
                 <Instagram className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
@@ -38,14 +38,14 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-accent/20 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Visitar nuestro LinkedIn - Abre en nueva ventana"
+                aria-label={`${t.footer.visitLinkedin} - ${t.footer.opensNewWindow}`}
               >
                 <Linkedin className="h-5 w-5 text-background" aria-hidden="true" />
               </a>
               <button
                 onClick={handleWhatsApp}
                 className="w-10 h-10 rounded-full bg-whatsapp/20 flex items-center justify-center hover:bg-whatsapp/30 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Contactar por WhatsApp - Abre en nueva ventana"
+                aria-label={`${t.footer.contactWhatsapp} - ${t.footer.opensNewWindow}`}
               >
                 <MessageCircle className="h-5 w-5 text-whatsapp" aria-hidden="true" />
               </button>
@@ -86,12 +86,12 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <nav aria-label="Enlaces rápidos">
-            <h4 className="font-semibold text-background mb-4">Enlaces</h4>
+          <nav aria-label={t.footer.quickLinks}>
+            <h4 className="font-semibold text-background mb-4">{t.nav.links}</h4>
             <ul className="space-y-2" role="list">
               <li>
                 <Link to="/" className="text-background/70 hover:text-accent transition-colors text-sm">
-                  {(t.nav as any).home || "Inicio"}
+                  {t.nav.home}
                 </Link>
               </li>
               <li>
@@ -121,11 +121,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-background mb-4">{t.nav.services}</h4>
             <ul className="space-y-2" role="list">
-              <li className="text-background/70 text-sm">Prevención y Consultoría</li>
-              <li className="text-background/70 text-sm">Derecho Mercantil</li>
-              <li className="text-background/70 text-sm">Derecho Corporativo</li>
-              <li className="text-background/70 text-sm">Derecho Civil e Inmobiliario</li>
-              <li className="text-background/70 text-sm">Derecho Familiar</li>
+              <li className="text-background/70 text-sm">{t.footer.services.prevention}</li>
+              <li className="text-background/70 text-sm">{t.footer.services.commercial}</li>
+              <li className="text-background/70 text-sm">{t.footer.services.corporate}</li>
+              <li className="text-background/70 text-sm">{t.footer.services.civil}</li>
+              <li className="text-background/70 text-sm">{t.footer.services.family}</li>
             </ul>
           </div>
         </div>
@@ -133,28 +133,28 @@ const Footer = () => {
         {/* SLA Notice */}
         <div className="py-4 mb-4 bg-accent/10 rounded-lg">
           <p className="text-center text-sm font-medium text-accent">
-            ⏱️ {t.hero.sla || "Respuesta en menos de 24 horas • Lun–Vie 9:00–19:00"}
+            ⏱️ {t.hero.sla}
           </p>
         </div>
 
         {/* Disclaimer */}
         <div className="py-4 border-t border-background/10">
           <p className="text-background/60 text-sm text-center italic">
-            {(t.legal as any)?.disclaimer || "Cada caso requiere análisis; agenda una consulta para evaluación."}
+            {t.legal.disclaimer}
           </p>
         </div>
 
         <div className="pt-4 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm text-center md:text-left">
-              © {currentYear} Rodriguez, Integración de Servicios Jurídicos S.A. de C.V. Todos los derechos reservados.
+              © {currentYear} {t.footer.copyright}. {t.footer.rights}
             </p>
             <div className="flex gap-6 text-sm">
               <Link to="/aviso-de-privacidad" className="text-background/50 hover:text-accent transition-colors">
-                {(t.legal as any)?.privacyPolicy || "Aviso de Privacidad"}
+                {t.legal.privacyPolicy}
               </Link>
               <Link to="/terminos" className="text-background/50 hover:text-accent transition-colors">
-                {(t.legal as any)?.termsConditions || "Términos y Condiciones"}
+                {t.legal.termsConditions}
               </Link>
             </div>
           </div>

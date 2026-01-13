@@ -58,13 +58,13 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
       {/* Skip link for keyboard users */}
       <a href="#main-content" className="skip-link">
-        Saltar al contenido principal
+        {t.common.skipToContent}
       </a>
-      <nav className="container mx-auto px-4 h-16 grid grid-cols-3 items-center" aria-label="Navegación principal">
+      <nav className="container mx-auto px-4 h-16 grid grid-cols-3 items-center" aria-label={t.common.mainNavigation}>
         {/* Logo - Izquierda */}
-        <Link to="/" className="flex items-center gap-2 justify-self-start" aria-label="Rodriguez Soporte Legal - Inicio">
+        <Link to="/" className="flex items-center gap-2 justify-self-start" aria-label={`${t.footer.brandName} - ${t.nav.home}`}>
           <span className="font-serif text-xl font-bold text-primary" aria-hidden="true">RSL</span>
-          <span className="hidden sm:inline text-sm text-muted-foreground">Rodriguez Soporte Legal</span>
+          <span className="hidden sm:inline text-sm text-muted-foreground">{t.footer.brandName}</span>
         </Link>
 
         {/* Desktop Navigation - Centro */}
@@ -83,7 +83,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+            aria-label={isOpen ? t.common.closeMenu : t.common.openMenu}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
@@ -102,7 +102,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-background border-b border-border"
             role="navigation"
-            aria-label="Menú móvil"
+            aria-label={t.common.mobileMenu}
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => renderNavLink(link, true))}

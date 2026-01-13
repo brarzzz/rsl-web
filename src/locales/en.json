@@ -6,7 +6,8 @@
     "about": "About Us",
     "team": "Team",
     "contact": "Contact",
-    "booking": "Book Appointment"
+    "booking": "Book Appointment",
+    "links": "Links"
   },
   "hero": {
     "badge": "[Pending translation]",
@@ -204,7 +205,10 @@
       "whatsapp": "WhatsApp",
       "sending": "Sending...",
       "required": "*",
-      "consent": "[Pending translation]",
+      "consent": "I have read and accept the",
+      "consentAnd": "and the",
+      "consentAuth": "I authorize the use of my data to be contacted.",
+      "sendAnother": "Send another message",
       "subjectOptions": {
         "consulting": "[Pending translation]",
         "commercial": "[Pending translation]",
@@ -255,7 +259,22 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
-    "disclaimer": "[Pending translation]"
+    "disclaimer": "[Pending translation]",
+    "copyright": "Rodriguez, Integración de Servicios Jurídicos S.A. de C.V.",
+    "brandName": "Rodriguez Soporte Legal",
+    "visitInstagram": "Visit our Instagram",
+    "visitLinkedin": "Visit our LinkedIn",
+    "contactWhatsapp": "Contact via WhatsApp",
+    "opensNewWindow": "Opens in new window",
+    "footerLabel": "Footer",
+    "quickLinks": "Quick links",
+    "services": {
+      "prevention": "[Pending translation]",
+      "commercial": "[Pending translation]",
+      "corporate": "[Pending translation]",
+      "civil": "[Pending translation]",
+      "family": "[Pending translation]"
+    }
   },
   "booking": {
     "title": "[Pending translation]",
@@ -319,7 +338,13 @@
     "loading": "Loading...",
     "error": "An error has occurred",
     "back": "Back",
-    "more": "See more"
+    "more": "See more",
+    "required": "required",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mobileMenu": "Mobile menu",
+    "mainNavigation": "Main navigation"
   },
   "microcopy": {
     "responseBadge": "24h Response Time",
@@ -335,5 +360,14 @@
     "es": "Español",
     "en": "English",
     "switch": "Change language"
+  },
+  "aria": {
+    "whatsappNewWindow": "Opens WhatsApp in new window",
+    "sendWhatsappNewWindow": "Send WhatsApp message - Opens in new window",
+    "homePage": "Home"
+  },
+  "toast": {
+    "messageSent": "Message sent!",
+    "messageDescription": "We will contact you within 24 hours."
   }
 }

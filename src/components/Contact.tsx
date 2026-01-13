@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { siteConfig } from "@/config/siteConfig";
 import { z } from "zod";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export interface ContactProps {
   badge?: string;
@@ -28,46 +29,46 @@ export interface ContactProps {
   subjectOptions?: string[];
 }
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "El nombre es requerido").max(100, "Máximo 100 caracteres"),
-  email: z.string().trim().email("Email inválido").max(255, "Máximo 255 caracteres"),
-  phone: z.string().trim().min(10, "Ingresa un teléfono válido (mínimo 10 dígitos)").max(20, "Máximo 20 caracteres"),
-  subject: z.string().trim().min(1, "Selecciona o escribe un asunto").max(200, "Máximo 200 caracteres"),
-  message: z.string().trim().min(10, "El mensaje debe tener al menos 10 caracteres").max(1000, "Máximo 1000 caracteres"),
-  consent: z.boolean().refine((val) => val === true, "Debes aceptar el aviso de privacidad"),
+// Validation schema - messages will be replaced at runtime
+const createContactSchema = (t: any) => z.object({
+  name: z.string().trim().min(1, t.contact.validation.nameRequired).max(100),
+  email: z.string().trim().email(t.contact.validation.emailInvalid).max(255),
+  phone: z.string().trim().min(10, t.contact.validation.phoneInvalid).max(20),
+  subject: z.string().trim().min(1, t.contact.validation.subjectRequired).max(200),
+  message: z.string().trim().min(10, t.contact.validation.messageMin).max(1000),
+  consent: z.boolean().refine((val) => val === true, t.contact.validation.consentRequired),
 });
 
-type ContactFormData = z.infer<typeof contactSchema>;
-
-const defaultSubjectOptions = [
-  "Consultoría empresarial",
-  "Derecho mercantil/corporativo",
-  "Derecho civil/inmobiliario",
-  "Derecho familiar",
-  "Contratos",
-  "Otro",
-];
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  consent: boolean;
+};
 
 const Contact = (props: ContactProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const {
-    badge = "Contacto",
-    title = "¿Listo para proteger tu negocio?",
-    subtitle = "Cuéntanos tu situación y te responderemos en menos de 24 horas con una propuesta clara y sin compromiso.",
-    successTitle = "¡Gracias por contactarnos!",
-    successMsg = "Hemos recibido tu mensaje. Un miembro de nuestro equipo te contactará en menos de 24 horas para atender tu consulta.",
+    badge = t.contact.badge,
+    title = t.contact.title,
+    subtitle = t.contact.subtitle,
+    successTitle = t.contact.success.title,
+    successMsg = t.contact.success.description,
     consentText,
     privacyUrl = "/aviso-de-privacidad",
     termsUrl = "/terminos",
-    submitLabel = siteConfig.ctas.primary,
-    whatsappLabel = "WhatsApp",
-    disclaimerText = "Cada caso requiere análisis; agenda una consulta para evaluación.",
-    subjectOptions = defaultSubjectOptions,
+    submitLabel = t.contact.form.submit,
+    whatsappLabel = t.contact.form.whatsapp,
+    disclaimerText = t.contact.disclaimer,
+    subjectOptions,
   } = props;
-  
+  const actualSubjectOptions = subjectOptions || Object.values(t.contact.form.subjectOptions);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -99,6 +100,7 @@ const Contact = (props: ContactProps) => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    const contactSchema = createContactSchema(t);
     const result = contactSchema.safeParse(formData);
     
     if (!result.success) {
@@ -118,8 +120,8 @@ const Contact = (props: ContactProps) => {
     
     setIsSuccess(true);
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo en menos de 24 horas.",
+      title: t.toast.messageSent,
+      description: t.toast.messageDescription,
     });
     
     setIsSubmitting(false);
@@ -191,7 +193,7 @@ const Contact = (props: ContactProps) => {
                     {siteConfig.ctas.secondary}
                   </Button>
                   <Button onClick={resetForm} variant="outline">
-                    Enviar otro mensaje
+                    {t.contact.form.sendAnother}
                   </Button>
                 </div>
               </div>
@@ -200,15 +202,15 @@ const Contact = (props: ContactProps) => {
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <Label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                      Nombre completo <span aria-hidden="true">*</span>
-                      <span className="sr-only">(requerido)</span>
+                      {t.contact.form.name} <span aria-hidden="true">*</span>
+                      <span className="sr-only">({t.common.required})</span>
                     </Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Tu nombre"
+                      placeholder={t.contact.form.namePlaceholder}
                       maxLength={100}
                       required
                       aria-required="true"
@@ -220,8 +222,8 @@ const Contact = (props: ContactProps) => {
                   </div>
                   <div>
                     <Label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                      Correo electrónico <span aria-hidden="true">*</span>
-                      <span className="sr-only">(requerido)</span>
+                      {t.contact.form.email} <span aria-hidden="true">*</span>
+                      <span className="sr-only">({t.common.required})</span>
                     </Label>
                     <Input
                       id="email"
