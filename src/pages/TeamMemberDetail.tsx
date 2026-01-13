@@ -1,15 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { ArrowLeft, Briefcase, GraduationCap, Globe, Award, Phone, MessageSquare, Calendar } from "lucide-react";
+import { ArrowLeft, Briefcase, GraduationCap, Globe, Award, MessageSquare, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { team } from "@/components/Team";
+import { defaultTeamMembers } from "@/components/Team";
+import { siteConfig } from "@/config/siteConfig";
 
 const TeamMemberDetail = () => {
   const { memberSlug } = useParams();
-  const member = team.find((m) => m.slug === memberSlug);
+  const member = defaultTeamMembers.find((m) => m.slug === memberSlug);
 
   if (!member) {
     return (
@@ -31,8 +32,7 @@ const TeamMemberDetail = () => {
   }
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(`Hola, me gustaría agendar una cita con ${member.name}.`);
-    window.open(`https://wa.me/526671636472?text=${message}`, "_blank");
+    window.open(siteConfig.whatsappLinkWithName(`agendar una cita con ${member.name}`, undefined), "_blank");
   };
 
   const schemaData = {
@@ -44,7 +44,7 @@ const TeamMemberDetail = () => {
       "@type": "LegalService",
       name: "Rodriguez Soporte Legal",
     },
-    knowsAbout: member.expertise,
+    knowsAbout: member.specialty,
     description: member.bio,
   };
 
@@ -54,7 +54,7 @@ const TeamMemberDetail = () => {
         <title>{member.name} - {member.role} | Rodriguez Soporte Legal</title>
         <meta 
           name="description" 
-          content={`${member.name}, ${member.role} en Rodriguez Soporte Legal. Especialista en ${member.expertise} con ${member.years} años de experiencia.`} 
+          content={`${member.name}, ${member.role} en Rodriguez Soporte Legal. Especialista en ${member.specialty} con ${member.xpYears} años de experiencia.`} 
         />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
@@ -90,7 +90,7 @@ const TeamMemberDetail = () => {
                 {/* Photo */}
                 <div className="relative">
                   <img
-                    src={member.photo}
+                    src={member.photoSrc}
                     alt={member.name}
                     className="w-full max-w-sm mx-auto aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
                   />
@@ -107,7 +107,7 @@ const TeamMemberDetail = () => {
                   <div className="space-y-3">
                     <Button onClick={handleWhatsApp} variant="whatsapp" className="w-full">
                       <MessageSquare className="mr-2 h-4 w-4" />
-                      Enviar WhatsApp
+                      {siteConfig.ctas.secondary}
                     </Button>
                     <Button asChild variant="outline" className="w-full">
                       <Link to="/agendar-cita">
@@ -134,13 +134,17 @@ const TeamMemberDetail = () => {
                 </h1>
                 <p className="text-xl text-accent font-medium mb-4">{member.role}</p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                    <Briefcase className="mr-1.5 h-3.5 w-3.5" />
-                    {member.expertise}
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
-                    +{member.years} años de experiencia
-                  </span>
+                  {member.specialty && (
+                    <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                      <Briefcase className="mr-1.5 h-3.5 w-3.5" />
+                      {member.specialty}
+                    </span>
+                  )}
+                  {member.xpYears && (
+                    <span className="inline-flex items-center px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
+                      +{member.xpYears} años de experiencia
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -153,50 +157,58 @@ const TeamMemberDetail = () => {
               {/* Details Grid */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {/* Experience */}
-                <div className="bg-card rounded-xl border border-border p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Briefcase className="h-5 w-5 text-primary" />
+                {member.xpYears && (
+                  <div className="bg-card rounded-xl border border-border p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Briefcase className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">Experiencia</h3>
                     </div>
-                    <h3 className="font-semibold text-foreground">Experiencia</h3>
+                    <p className="text-2xl font-bold text-foreground">+{member.xpYears} años</p>
+                    <p className="text-sm text-muted-foreground">ejerciendo el derecho</p>
                   </div>
-                  <p className="text-2xl font-bold text-foreground">+{member.years} años</p>
-                  <p className="text-sm text-muted-foreground">ejerciendo el derecho</p>
-                </div>
+                )}
 
                 {/* Education */}
-                <div className="bg-card rounded-xl border border-border p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <GraduationCap className="h-5 w-5 text-accent" />
+                {member.education && (
+                  <div className="bg-card rounded-xl border border-border p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                        <GraduationCap className="h-5 w-5 text-accent" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">Educación</h3>
                     </div>
-                    <h3 className="font-semibold text-foreground">Educación</h3>
+                    <p className="text-2xl font-bold text-foreground">{member.education}</p>
+                    <p className="text-sm text-muted-foreground">en Derecho</p>
                   </div>
-                  <p className="text-2xl font-bold text-foreground">{member.education}</p>
-                  <p className="text-sm text-muted-foreground">en Derecho</p>
-                </div>
+                )}
 
                 {/* Languages */}
-                <div className="bg-card rounded-xl border border-border p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
-                      <Globe className="h-5 w-5 text-green-600" />
+                {member.langs && member.langs.length > 0 && (
+                  <div className="bg-card rounded-xl border border-border p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                        <Globe className="h-5 w-5 text-green-600" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">Idiomas</h3>
                     </div>
-                    <h3 className="font-semibold text-foreground">Idiomas</h3>
+                    <p className="text-lg font-bold text-foreground">{member.langs.join(", ")}</p>
                   </div>
-                  <p className="text-lg font-bold text-foreground">{member.langs.join(", ")}</p>
-                </div>
+                )}
 
                 {/* Specialty */}
-                <div className="bg-card rounded-xl border border-border p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                      <Award className="h-5 w-5 text-purple-600" />
+                {member.specialty && (
+                  <div className="bg-card rounded-xl border border-border p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <Award className="h-5 w-5 text-purple-600" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">Especialidad</h3>
                     </div>
-                    <h3 className="font-semibold text-foreground">Especialidad</h3>
+                    <p className="text-lg font-bold text-foreground">{member.specialty}</p>
                   </div>
-                  <p className="text-lg font-bold text-foreground">{member.expertise}</p>
-                </div>
+                )}
               </div>
 
               {/* Pending Info */}

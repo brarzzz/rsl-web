@@ -12,6 +12,22 @@ import { useToast } from "@/hooks/use-toast";
 import { siteConfig } from "@/config/siteConfig";
 import { z } from "zod";
 
+export interface ContactProps {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+  successTitle?: string;
+  successMsg?: string;
+  errorMsg?: string;
+  consentText?: string;
+  privacyUrl?: string;
+  termsUrl?: string;
+  submitLabel?: string;
+  whatsappLabel?: string;
+  disclaimerText?: string;
+  subjectOptions?: string[];
+}
+
 const contactSchema = z.object({
   name: z.string().trim().min(1, "El nombre es requerido").max(100, "Máximo 100 caracteres"),
   email: z.string().trim().email("Email inválido").max(255, "Máximo 255 caracteres"),
@@ -23,7 +39,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-const subjectOptions = [
+const defaultSubjectOptions = [
   "Consultoría empresarial",
   "Derecho mercantil/corporativo",
   "Derecho civil/inmobiliario",
@@ -32,10 +48,25 @@ const subjectOptions = [
   "Otro",
 ];
 
-const Contact = () => {
+const Contact = (props: ContactProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
+
+  const {
+    badge = "Contacto",
+    title = "¿Listo para proteger tu negocio?",
+    subtitle = "Cuéntanos tu situación y te responderemos en menos de 24 horas con una propuesta clara y sin compromiso.",
+    successTitle = "¡Gracias por contactarnos!",
+    successMsg = "Hemos recibido tu mensaje. Un miembro de nuestro equipo te contactará en menos de 24 horas para atender tu consulta.",
+    consentText,
+    privacyUrl = "/aviso-de-privacidad",
+    termsUrl = "/terminos",
+    submitLabel = siteConfig.ctas.primary,
+    whatsappLabel = "WhatsApp",
+    disclaimerText = "Cada caso requiere análisis; agenda una consulta para evaluación.",
+    subjectOptions = defaultSubjectOptions,
+  } = props;
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -114,16 +145,21 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 text-sm font-medium text-accent bg-accent/20 rounded-full mb-4">
-            Contacto
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            ¿Listo para proteger tu negocio?
-          </h2>
-          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            Cuéntanos tu situación y te responderemos en menos de 24 horas 
-            con una propuesta clara y sin compromiso.
-          </p>
+          {badge && (
+            <span className="inline-block px-3 py-1 text-sm font-medium text-accent bg-accent/20 rounded-full mb-4">
+              {badge}
+            </span>
+          )}
+          {title && (
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+              {title}
+            </h2>
+          )}
+          {subtitle && (
+            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+              {subtitle}
+            </p>
+          )}
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12">
@@ -140,11 +176,10 @@ const Contact = () => {
                   <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
-                  ¡Gracias por contactarnos!
+                  {successTitle}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Hemos recibido tu mensaje. Un miembro de nuestro equipo te contactará 
-                  en menos de 24 horas para atender tu consulta.
+                  {successMsg}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Button 
@@ -153,7 +188,7 @@ const Contact = () => {
                     aria-label="Enviar mensaje por WhatsApp - Abre en nueva ventana"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                    Enviar WhatsApp ahora
+                    {siteConfig.ctas.secondary}
                   </Button>
                   <Button onClick={resetForm} variant="outline">
                     Enviar otro mensaje
@@ -290,15 +325,19 @@ const Contact = () => {
                       className={errors.consent ? "border-destructive" : ""}
                     />
                     <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                      He leído y acepto el{" "}
-                      <a href="/aviso-de-privacidad" target="_blank" className="text-accent underline hover:no-underline">
-                        Aviso de Privacidad
-                      </a>{" "}
-                      y los{" "}
-                      <a href="/terminos" target="_blank" className="text-accent underline hover:no-underline">
-                        Términos y Condiciones
-                      </a>
-                      . Autorizo el uso de mis datos para ser contactado.
+                      {consentText || (
+                        <>
+                          He leído y acepto el{" "}
+                          <a href={privacyUrl} target="_blank" className="text-accent underline hover:no-underline">
+                            Aviso de Privacidad
+                          </a>{" "}
+                          y los{" "}
+                          <a href={termsUrl} target="_blank" className="text-accent underline hover:no-underline">
+                            Términos y Condiciones
+                          </a>
+                          . Autorizo el uso de mis datos para ser contactado.
+                        </>
+                      )}
                     </Label>
                   </div>
                   {errors.consent && <p className="text-xs text-destructive mt-1">{errors.consent}</p>}
@@ -307,7 +346,7 @@ const Contact = () => {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button type="submit" variant="gold" size="lg" className="flex-1" disabled={isSubmitting}>
                     <Send className="h-4 w-4" aria-hidden="true" />
-                    {isSubmitting ? "Enviando..." : "Solicitar Cotización"}
+                    {isSubmitting ? "Enviando..." : submitLabel}
                   </Button>
                   <Button 
                     type="button" 
@@ -317,13 +356,15 @@ const Contact = () => {
                     aria-label="Contactar por WhatsApp - Abre en nueva ventana"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                    WhatsApp
+                    {whatsappLabel}
                   </Button>
                 </div>
                 
-                <p className="text-xs text-muted-foreground mt-4 text-center">
-                  Cada caso requiere análisis; agenda una consulta para evaluación.
-                </p>
+                {disclaimerText && (
+                  <p className="text-xs text-muted-foreground mt-4 text-center">
+                    {disclaimerText}
+                  </p>
+                )}
               </form>
             )}
           </motion.div>

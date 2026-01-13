@@ -5,27 +5,50 @@ import { useTranslation } from "@/i18n/LanguageContext";
 import { siteConfig } from "@/config/siteConfig";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const Hero = () => {
+export interface HeroProps {
+  kicker?: string;
+  title: string;
+  titleAccent?: string;
+  subtitle: string;
+  bullets: string[];
+  ctaPrimaryText: string;
+  ctaPrimaryHref: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+  slaText?: string;
+  backgroundImage?: string;
+}
+
+const Hero = (props: Partial<HeroProps>) => {
   const { t } = useTranslation();
+
+  // Default values from translations
+  const {
+    kicker = t.hero.badge,
+    title = t.hero.title,
+    titleAccent = t.hero.titleAccent,
+    subtitle = t.hero.subtitle,
+    bullets = [t.hero.bullet1, t.hero.bullet2, t.hero.bullet3],
+    ctaPrimaryText = t.hero.ctaPrimary,
+    ctaPrimaryHref = "#contacto",
+    ctaSecondaryText = t.hero.ctaSecondary,
+    ctaSecondaryHref,
+    slaText = t.hero.sla,
+    backgroundImage = heroBg,
+  } = props;
 
   const handleWhatsApp = () => {
     window.open(siteConfig.whatsappLink(t.common.whatsappMessage), "_blank");
   };
-
-  const bullets = [
-    t.hero.bullet1,
-    t.hero.bullet2,
-    t.hero.bullet3,
-  ];
 
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Background Image - with explicit dimensions for CLS prevention */}
+      {/* Background Image */}
       <img
-        src={heroBg}
+        src={backgroundImage}
         alt=""
         role="presentation"
         className="absolute inset-0 w-full h-full object-cover object-center"
@@ -40,15 +63,17 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent/20 text-accent border border-accent/30 rounded-full">
-              {t.hero.badge}
-            </span>
-          </motion.div>
+          {kicker && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent/20 text-accent border border-accent/30 rounded-full">
+                {kicker}
+              </span>
+            </motion.div>
+          )}
           
           <motion.h1
             id="hero-heading"
@@ -57,8 +82,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6"
           >
-            {t.hero.title}{" "}
-            <span className="text-accent">{t.hero.titleAccent}</span>
+            {title}{" "}
+            {titleAccent && <span className="text-accent">{titleAccent}</span>}
           </motion.h1>
           
           <motion.p
@@ -67,23 +92,25 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
           >
-            {t.hero.subtitle}
+            {subtitle}
           </motion.p>
 
           {/* Bullets */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8"
-          >
-            {bullets.map((bullet, index) => (
-              <div key={index} className="flex items-center gap-2 text-primary-foreground/90">
-                <CheckCircle className="h-4 w-4 text-accent" aria-hidden="true" />
-                <span className="text-sm sm:text-base">{bullet}</span>
-              </div>
-            ))}
-          </motion.div>
+          {bullets.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8"
+            >
+              {bullets.map((bullet, index) => (
+                <div key={index} className="flex items-center gap-2 text-primary-foreground/90">
+                  <CheckCircle className="h-4 w-4 text-accent" aria-hidden="true" />
+                  <span className="text-sm sm:text-base">{bullet}</span>
+                </div>
+              ))}
+            </motion.div>
+          )}
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,30 +119,44 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="heroGold" size="xl" asChild>
-              <a href="#contacto" aria-label={t.hero.ctaPrimary}>
-                {t.hero.ctaPrimary}
+              <a href={ctaPrimaryHref} aria-label={ctaPrimaryText}>
+                {ctaPrimaryText}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>
-            <Button 
-              variant="heroOutline" 
-              size="xl" 
-              onClick={handleWhatsApp}
-              aria-label={`${t.hero.ctaSecondary} - Abre WhatsApp en nueva ventana`}
-            >
-              <Phone className="h-5 w-5" aria-hidden="true" />
-              {t.hero.ctaSecondary}
-            </Button>
+            {ctaSecondaryText && (
+              <Button 
+                variant="heroOutline" 
+                size="xl" 
+                onClick={ctaSecondaryHref ? undefined : handleWhatsApp}
+                asChild={!!ctaSecondaryHref}
+                aria-label={`${ctaSecondaryText} - Abre WhatsApp en nueva ventana`}
+              >
+                {ctaSecondaryHref ? (
+                  <a href={ctaSecondaryHref}>
+                    <Phone className="h-5 w-5" aria-hidden="true" />
+                    {ctaSecondaryText}
+                  </a>
+                ) : (
+                  <>
+                    <Phone className="h-5 w-5" aria-hidden="true" />
+                    {ctaSecondaryText}
+                  </>
+                )}
+              </Button>
+            )}
           </motion.div>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-6 text-sm text-primary-foreground/60"
-          >
-            {t.hero.sla}
-          </motion.p>
+          {slaText && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-6 text-sm text-primary-foreground/60"
+            >
+              {slaText}
+            </motion.p>
+          )}
         </div>
       </div>
       
