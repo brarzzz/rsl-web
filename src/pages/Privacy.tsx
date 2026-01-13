@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import SchemaMarkup from '@/components/SchemaMarkup';
+import SEOHead from '@/components/SEOHead';
 import { useTranslation } from '@/i18n/LanguageContext';
 
 const Privacy = () => {
@@ -15,10 +15,11 @@ const Privacy = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup 
-        type="webpage" 
-        pageTitle={t.seo.privacy.title} 
-        pageDescription={t.seo.privacy.description} 
+      <SEOHead 
+        title={t.seo.privacy.title} 
+        description={t.seo.privacy.description}
+        canonical="https://soportelegal.com.mx/privacidad"
+        noindex
       />
       <Navbar />
       

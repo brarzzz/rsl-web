@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import SchemaMarkup from '@/components/SchemaMarkup';
+import SEOHead from '@/components/SEOHead';
 import { useTranslation } from '@/i18n/LanguageContext';
 
 const Terms = () => {
@@ -15,10 +15,11 @@ const Terms = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup 
-        type="webpage" 
-        pageTitle={t.seo.terms.title} 
-        pageDescription={t.seo.terms.description} 
+      <SEOHead 
+        title={t.seo.terms.title} 
+        description={t.seo.terms.description}
+        canonical="https://soportelegal.com.mx/terminos"
+        noindex
       />
       <Navbar />
       

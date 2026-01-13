@@ -11,7 +11,8 @@ import FinalCTA from "@/components/FinalCTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import SEOHead, { organizationSchema, legalServiceSchema, websiteSchema } from "@/components/SEOHead";
+import SEOHead from "@/components/SEOHead";
+import { organizationSchema, legalServiceSchema, websiteSchema } from "@/seo/schema";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 // Content imports

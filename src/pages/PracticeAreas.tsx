@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
-import SchemaMarkup from '@/components/SchemaMarkup';
+import SEOHead, { legalServiceSchema } from '@/components/SEOHead';
 import { useTranslation } from '@/i18n/LanguageContext';
 
 const practiceAreas = [
@@ -81,10 +81,11 @@ const PracticeAreas = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup 
-        type="webpage" 
-        pageTitle={t.seo.practiceAreas.title} 
-        pageDescription={t.seo.practiceAreas.description} 
+      <SEOHead 
+        title={t.seo.practiceAreas.title} 
+        description={t.seo.practiceAreas.description}
+        canonical="https://soportelegal.com.mx/areas-de-practica"
+        schema={legalServiceSchema}
       />
       <Navbar />
       
