@@ -194,7 +194,7 @@ const PracticeAreaTemplate = ({
                   <div className="mt-6 pt-4 border-t border-primary-foreground/20">
                     <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
                       <Phone className="h-4 w-4" aria-hidden="true" />
-                      <a href={`tel:+52${siteConfig.phone}`} className="hover:text-primary-foreground transition-colors">
+                      <a href={`tel:+52${siteConfig.phone}`} className="transition-colors text-neutral-50">
                         {siteConfig.phoneFormatted}
                       </a>
                     </div>
