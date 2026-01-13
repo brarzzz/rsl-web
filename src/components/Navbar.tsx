@@ -16,7 +16,7 @@ const Navbar = () => {
     { href: "#nosotros", label: t.nav.about, isRoute: false },
     { href: "#equipo", label: t.nav.team, isRoute: false },
     { href: "#contacto", label: t.nav.contact, isRoute: false },
-    { href: "/agendar", label: t.nav.booking, isRoute: true },
+    { href: "/agendar-cita", label: "Agendar Cita", isRoute: true },
   ];
 
   const handleWhatsApp = () => {
